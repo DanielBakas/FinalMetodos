@@ -1,0 +1,27 @@
+POST http://localhost:8080/mmsk
+Content-Type: application/json
+Accept: application/json
+
+{
+  "s": 1,
+  "k": 3,
+  "lambda": 2,
+  "mu": 3
+}
+<> 2022-05-13T165021.200.json
+<> 2022-05-13T155725.415.json
+
+###
+###
+POST http://localhost:8080/mg1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "s": 1,
+  "k": 3,
+  "lambda": 2,
+  "mu": 3,
+  "distribution": "EXPONENTIAL",
+  "variance": 0.8
+}

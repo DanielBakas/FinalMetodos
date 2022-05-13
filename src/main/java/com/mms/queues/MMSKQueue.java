@@ -11,6 +11,22 @@ May 12, 2022
 
 public class MMSKQueue extends Queue {
 
+    // Constructor
+    public MMSKQueue(
+            Distribution distribution,
+            int k,
+            float lambda,
+            float mu,
+            int s,
+            float variance) throws Exception {
+        this.distribution = distribution;
+        this.k = k;
+        this.lambda = lambda;
+        this.mu = mu;
+        this.setS(s);
+        this.variance = variance;
+    }
+
     // Getters & Setters
     @Override
     public void setS(int s) throws Exception {
@@ -125,21 +141,5 @@ public class MMSKQueue extends Queue {
         result.append("  - Lq: " + this.getLq() + "\n");
         result.append("  - L: " + this.getL() + "\n");
         return result.toString();
-    }
-
-    // Constructor
-    public MMSKQueue(
-            Distribution distribution,
-            int k,
-            float lambda,
-            float mu,
-            int s,
-            float variance) throws Exception {
-        this.distribution = distribution;
-        this.k = k;
-        this.lambda = lambda;
-        this.mu = mu;
-        this.setS(s);
-        this.variance = variance;
     }
 }

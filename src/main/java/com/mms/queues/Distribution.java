@@ -10,7 +10,7 @@ May 12, 2022
 */
 
 public enum Distribution {
-    Exponential,
-    Gamma,
-    Lognormal
+    EXPONENTIAL,
+    GAMMA,
+    LOGNORMAL
 }
