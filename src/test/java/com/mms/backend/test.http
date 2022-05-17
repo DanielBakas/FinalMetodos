@@ -6,7 +6,9 @@ Accept: application/json
   "s": 1,
   "k": 3,
   "lambda": 2,
-  "mu": 3
+  "mu": 3,
+  "cw": 15,
+  "cs": 12
 }
 
 ###
@@ -21,5 +23,7 @@ Accept: application/json
   "lambda": 2,
   "mu": 3,
   "distribution": "EXPONENTIAL",
-  "variance": 0.8
+  "variance": 0.8,
+  "cw": 15,
+  "cs": 12
 }

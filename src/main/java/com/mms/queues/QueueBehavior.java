@@ -55,4 +55,5 @@ public interface QueueBehavior {
     public float getWq() throws Exception;
 
     public String print() throws Exception;
+
 }

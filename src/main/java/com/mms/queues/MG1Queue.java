@@ -86,4 +86,5 @@ public class MG1Queue extends Queue {
         this.setS(s);
         this.variance = variance;
     }
+
 }

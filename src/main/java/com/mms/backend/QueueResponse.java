@@ -8,8 +8,9 @@ public class QueueResponse {
     private double w;
     private double lq;
     private double l;
+    private double ct;
 
-    public QueueResponse(double p0, double pk, double lambdaE, double wq, double w, double lq, double l) {
+    public QueueResponse(double p0, double pk, double lambdaE, double wq, double w, double lq, double l, double ct) {
         P0 = p0;
         this.pk = pk;
         this.lambdaE = lambdaE;
@@ -76,5 +77,13 @@ public class QueueResponse {
 
     public void setP0(double p0) {
         P0 = p0;
+    }
+
+    public double getCt() {
+        return ct;
+    }
+
+    public void setCt(double ct) {
+        this.ct = ct;
     }
 }

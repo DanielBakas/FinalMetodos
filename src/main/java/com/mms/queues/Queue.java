@@ -9,14 +9,44 @@ May 12, 2022
 ================================================================================
 */
 
-public abstract class Queue implements QueueBehavior {
+public abstract class Queue implements QueueBehavior, CostBehavior {
     // Attributes
+    protected float cs;
+    protected float cw;
     protected Distribution distribution;
     protected int k;
     protected float lambda;
     protected float mu;
     protected int s;
     protected float variance;
+
+    @Override
+    public float getC(){
+        float temp1 = this.getLq() * this.getCw();
+        float temp2 = this.getS() * this.getCs();
+        float result = temp1 + temp2;
+        return result;
+    }
+
+    @Override
+    public float getCs() {
+        return this.cs;
+    }
+
+    @Override
+    public void setCs(float cs) {
+        this.cs = cs;
+    }
+
+    @Override
+    public float getCw() {
+        return this.cw;
+    }
+
+    @Override
+    public void setCw(float cw) {
+        this.cw = cw;
+    }
 
     public Distribution getDistribution() {
         return this.distribution;

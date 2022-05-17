@@ -13,12 +13,16 @@ public class MMSKQueue extends Queue {
 
     // Constructor
     public MMSKQueue(
+            float cw,
+            float cs,
             Distribution distribution,
             int k,
             float lambda,
             float mu,
             int s,
             float variance) throws Exception {
+        this.cs = cs;
+        this.cw = cw;
         this.distribution = distribution;
         this.k = k;
         this.lambda = lambda;
@@ -121,6 +125,8 @@ public class MMSKQueue extends Queue {
         return result;
     }
 
+
+
     @Override
     public String print() throws Exception {
         StringBuilder result = new StringBuilder();
@@ -132,6 +138,8 @@ public class MMSKQueue extends Queue {
         result.append("  - mu: " + this.getMu() + "\n");
         result.append("  - s: " + this.getS() + "\n");
         result.append("  - variance: " + this.getVariance() + "\n");
+        result.append("  - cw: " + this.getCw() + "\n");
+        result.append("  - cs: " + this.getCs() + "\n");
         result.append("- Results:\n");
         result.append("  - P0: " + this.getP0() + "\n");
         result.append("  - Pk: " + this.getPn(this.getK()) + "\n");
@@ -140,6 +148,7 @@ public class MMSKQueue extends Queue {
         result.append("  - W: " + this.getW() + "\n");
         result.append("  - Lq: " + this.getLq() + "\n");
         result.append("  - L: " + this.getL() + "\n");
+        result.append("  - C: " + this.getC() + "\n");
         return result.toString();
     }
 }

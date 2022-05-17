@@ -26,6 +26,11 @@ public class QueueController {
     private QueueResponse getQueueResponse(Queue pojo) {
         QueueResponse queueResponse;
         try {
+            System.out.println(pojo.print());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        try {
             queueResponse = new QueueResponse();
             queueResponse.setP0(pojo.getP0());
             queueResponse.setPk(pojo.getPn(pojo.getK()));
@@ -34,6 +39,7 @@ public class QueueController {
             queueResponse.setW(pojo.getW());
             queueResponse.setLq(pojo.getLq());
             queueResponse.setL(pojo.getL());
+            queueResponse.setCt(pojo.getC());
 
         } catch (Exception e) {
             throw new RuntimeException(e);
