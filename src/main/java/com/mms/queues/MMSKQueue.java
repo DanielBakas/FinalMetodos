@@ -1,26 +1,25 @@
-package com.mms.queues;/*
-================================================================================
-# Final Project
-Module | `QueueCase.java`
+package com.mms.queues;
 
-Authors\
+/**
+ * =============================================================================
+ * # Final Project
+ *
+ * Module | `MMSKQueue.java`
+ *
+ * Daniel Bakas Amuchástegui          A01657103
+ * Santiago Hernández Guerrero        A01027543
+ * Oscar Vargas Pérez                 A01027543
+ * Oscar Alfredo Belmont Rodríguez    A01654861
+ *
+ * May 12, 2022
+ * =============================================================================
+ */
 
-May 12, 2022
-================================================================================
-*/
-
-public class MMSKQueue extends Queue {
+public class MMSKQueue extends AbstractQueue {
 
     // Constructor
-    public MMSKQueue(
-            float cw,
-            float cs,
-            Distribution distribution,
-            int k,
-            float lambda,
-            float mu,
-            int s,
-            float variance) throws Exception {
+    public MMSKQueue(float cw, float cs, Distribution distribution, int k,
+                     float lambda, float mu, int s, float variance) throws Exception {
         this.cs = cs;
         this.cw = cw;
         this.distribution = distribution;
@@ -34,17 +33,14 @@ public class MMSKQueue extends Queue {
     // Getters & Setters
     @Override
     public void setS(int s) throws Exception {
-        if (s <= this.k)
-            this.s = s;
-        else
-            throw new Exception("Attribute 's' can not be greater than 'k'.");
+        if (s <= this.k) this.s = s;
+        else throw new Exception("Attribute 's' can not be greater than 'k'.");
     }
 
     // Methods
     @Override
     public float getCn(int n) throws Exception {
-        if (n > this.k)
-            return 0;
+        if (n > this.k) return 0;
         else if (n >= 0 && n <= this.getS()) {
             float temp1 = this.getLambda() / this.getMu();
             float temp2 = (float) Math.pow(temp1, n);
@@ -58,8 +54,7 @@ public class MMSKQueue extends Queue {
             temp3 *= (float) Math.pow(this.getS(), n - this.getS());
             float result = temp2 / temp3;
             return result;
-        } else
-            throw new Exception("Invalid value for parameter 'n'.");
+        } else throw new Exception("Invalid value for parameter 'n'.");
     }
 
     @Override
@@ -80,7 +75,8 @@ public class MMSKQueue extends Queue {
         float temp6 = this.getP0() * temp2 * this.getRho();
         float temp7 = temp6 / temp5;
         // Product Right Side
-        float temp90 = (float) Math.pow(this.getRho(), this.getK() - this.getS());
+        float temp90 = (float) Math.pow(this.getRho(),
+                this.getK() - this.getS());
         float temp93 = this.getK() - this.getS();
         float temp95 = 1 - this.getRho();
         float temp96 = temp93 * temp90 * temp95;
@@ -125,14 +121,13 @@ public class MMSKQueue extends Queue {
         return result;
     }
 
-
-
     @Override
     public String print() throws Exception {
         StringBuilder result = new StringBuilder();
         result.append("M/M/S/K queues.Queue:\n");
         result.append("- Attributes:\n");
-        result.append("  - queues.Distribution: " + this.getDistribution() + "\n");
+        result.append("  - queues.Distribution: " + this.getDistribution() +
+                "\n");
         result.append("  - k: " + this.getK() + "\n");
         result.append("  - lambda: " + this.getLambda() + "\n");
         result.append("  - mu: " + this.getMu() + "\n");

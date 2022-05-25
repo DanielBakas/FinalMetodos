@@ -1,59 +1,64 @@
-package com.mms.queues;/*
-================================================================================
-# Final Project
-Module | `queues.QueueBehavior.java`
+package com.mms.queues;
 
-Authors\
-
-May 12, 2022
-================================================================================
-*/
+/**
+ * =============================================================================
+ * # FinalMetodos
+ *
+ * Module | `QueueBehavior.java`
+ *
+ * Daniel Bakas Amuchástegui          A01657103
+ * Santiago Hernández Guerrero        A01027543
+ * Oscar Vargas Pérez                 A01027543
+ * Oscar Alfredo Belmont Rodríguez    A01654861
+ *
+ * may. 25, 2022
+ * =============================================================================
+ */
 
 public interface QueueBehavior {
     // Getters & Setters
-    public Distribution getDistribution();
+    Distribution getDistribution();
 
-    public void setDistribution(Distribution distribution);
+    void setDistribution(Distribution distribution);
 
-    public int getK();
+    int getK();
 
-    public void setK(int k);
+    void setK(int k);
 
-    public float getLambda();
+    float getLambda();
 
-    public void setLambda(int lambda);
+    void setLambda(int lambda);
 
-    public float getMu();
+    float getMu();
 
-    public void setMu(int mu);
+    void setMu(int mu);
 
-    public int getS();
+    int getS();
 
-    public void setS(int s) throws Exception;
+    void setS(int s) throws Exception;
 
-    public float getVariance();
+    float getVariance();
 
-    public void setVariance(int variance);
+    void setVariance(int variance);
 
     // Methods
-    public float getCn(int n) throws Exception;
+    float getCn(int n) throws Exception;
 
-    public float getLambdaE() throws Exception;
+    float getLambdaE() throws Exception;
 
-    public float getL() throws Exception;
+    float getL() throws Exception;
 
-    public float getLq();
+    float getLq();
 
-    public float getPn(int n) throws Exception;
+    float getPn(int n) throws Exception;
 
-    public float getP0();
+    float getP0();
 
-    public float getRho();
+    float getRho();
 
-    public float getW() throws Exception;
+    float getW() throws Exception;
 
-    public float getWq() throws Exception;
+    float getWq() throws Exception;
 
-    public String print() throws Exception;
-
+    String print() throws Exception;
 }

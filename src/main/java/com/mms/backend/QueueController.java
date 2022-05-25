@@ -2,7 +2,7 @@ package com.mms.backend;
 
 import com.mms.queues.MG1Queue;
 import com.mms.queues.MMSKQueue;
-import com.mms.queues.Queue;
+import com.mms.queues.AbstractQueue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +23,7 @@ public class QueueController {
         return getQueueResponse(pojo);
     }
 
-    private QueueResponse getQueueResponse(Queue pojo) {
+    private QueueResponse getQueueResponse(AbstractQueue pojo) {
         QueueResponse queueResponse;
         try {
             System.out.println(pojo.print());
