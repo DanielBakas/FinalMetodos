@@ -13,20 +13,15 @@
 
 <div class="container card card-color">
     <form action="" id="sampleForm">
-        <h1> Queue Calculator</h1>
+        <h1> MMSK Calculator</h1>
         <div class="form-row">
             <label id="modellabel" for="model">Queue model</label>
             <select  class="input-text input-text-block" name="model" id="model">
-                <option value="mm1">M/M/1</option>
-                <option value="mms">M/M/s</option>
-                <option value="mmsk">M/M/s/K</option>
-                <option value="mg1">M/G/1</option>
-                <option value="me1">M/E/1</option>
-                <option value="md1">M/D/1</option>
+                <option selected="selected" value="mmsk">M/M/s/K</option>
             </select>
         </div>
 
-        <div class="values" id="MMSK" style="display: none">
+        <div class="values" id="MMSK" style="display: flex">
             <div class="form-row">
                 <label for="lambda">λ</label>
                 <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
@@ -61,8 +56,58 @@
             </div>
         </div>
 
-        <div class="values" id="MG1" style="display: none">
-            <label for="distro">Distribution</label>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
+    </form>
+
+
+
+    <form id="form2">
+        <h1> MM1 Calculator</h1>
+        <div class="form-row">
+            <label id="modellabel" for="model">Queue model</label>
+            <select  class="input-text input-text-block" name="model" id="model">
+                <option selected="selected" value="mm1">M/M/1</option>
+            </select>
+        </div>
+        <div class="values" id="MM1" style="display: flex">
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
+            </div>
+        </div>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="form3">
+        <h1> MG1 Calculator</h1>
+        <div class="form-row">
+            <label id="modellabel" for="model">Queue model</label>
+            <select  class="input-text input-text-block" name="model" id="model">
+                <option selected="selected" value="mg1">M/G/1</option>
+            </select>
+        </div>
+        <div class="values" id="MG1" style="display: flex">
+            <label >Distribution</label>
             <select class="input-text input-text-block w-100" name="Distribution" id="Distribution">
                 <option value="EXPONENTIAL">EXPONENTIAL</option>
                 <option value="GAMMA">GAMMA</option>
@@ -91,27 +136,22 @@
                 <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
             </div>
         </div>
-
-        <div class="values" id="MM1" style="display: none">
-            <div class="form-row">
-                <label for="lambda">λ</label>
-                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
-            </div>
-            <div class="form-row">
-                <label for="mu">𝜇</label>
-                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
-            </div>
-            <div class="form-row">
-                <label for="cw">cw</label>
-                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
-            </div>
-            <div class="form-row">
-                <label for="cs">cs</label>
-                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
-            </div>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
         </div>
+    </form>
 
-        <div class="values" id="MMS" style="display: none">
+    <form id="form4">
+        <h1> MMS Calculator</h1>
+        <div class="form-row">
+            <label id="modellabel" for="model">Queue model</label>
+            <select  class="input-text input-text-block" name="model" id="model">
+                <option  selected="selected" value="mms">M/M/s</option>
+            </select>
+        </div>
+        <div class="values" id="MMS" style="display: flex">
             <div class="form-row">
                 <label for="lambda">λ</label>
                 <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
@@ -133,8 +173,22 @@
                 <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
             </div>
         </div>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
+    </form>
 
-        <div class="values" id="MD1" style="display: none">
+    <form id="form5">
+        <h1> MD1 Calculator</h1>
+        <div class="form-row">
+            <label id="modellabel" for="model">Queue model</label>
+            <select  class="input-text input-text-block" name="model" id="model">
+                <option selected="selected" value="md1">M/D/1</option>
+            </select>
+        </div>
+        <div class="values" id="MD1" style="display: flex">
             <div class="form-row">
                 <label for="lambda">λ</label>
                 <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
@@ -145,15 +199,29 @@
             </div>
             <div class="form-row">
                 <label for="cw">cw</label>
-                <input type="text" class="input-text input-text-block w-100" name="cw">
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
             </div>
             <div class="form-row">
                 <label for="cs">cs</label>
-                <input type="text" class="input-text input-text-block w-100" name="cs">
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
             </div>
         </div>
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
+    </form>
 
-        <div class="values" id="ME1" style="display: none">
+    <form id="form6">
+        <h1> ME1 Calculator</h1>
+        <div class="form-row">
+            <label id="modellabel" for="model">Queue model</label>
+            <select  class="input-text input-text-block" name="model" id="model">
+                <option selected="selected" value="me1">M/E/1</option>
+            </select>
+        </div>
+        <div class="values" id="ME1" style="display: flex">
             <div class="form-row">
                 <label for="lambda">λ</label>
                 <input type="text" class="input-text input-text-block w-100" name="lambda">
@@ -163,7 +231,7 @@
                 <input type="text" class="input-text input-text-block w-100" name="mu">
             </div>
             <div class="form-row">
-                <label for="ew">ew</label>
+                <label >ew</label>
                 <input type="text" class="input-text input-text-block w-100" name="ew">
             </div>
             <div class="form-row">
@@ -175,14 +243,13 @@
                 <input type="text" class="input-text input-text-block w-100" name="cs">
             </div>
         </div>
-
-
         <div class="form-row mx-auto">
             <button type="submit" class="btn-submit" id="btnSubmit">
                 Submit
             </button>
         </div>
     </form>
+
 </div>
 
 <div class="container card card-color">
@@ -207,11 +274,6 @@
     </div>
 </div>
 <script type="module" src="js/index.js"></script>
-<footer>
-    Daniel Bakas Amuchástegui,
-    Santiago Hernández Guerrero,
-    Oscar Vargas Pérez,
-    Oscar Alfredo Belmont Rodríguez
-</footer>
+
 </body>
 </html>

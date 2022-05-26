@@ -23,13 +23,13 @@ export default class FetchService {
     }
 
     async performPostHttpRequest(fetchLink, headers, body) {
-        console.log(fetchLink);
-        console.log(headers);
-        console.log(body);
         if(!fetchLink || !headers || !body) {
             throw new Error("One or more POST request parameters was not passed.");
         }
         try {
+            console.log(fetchLink);
+            console.log(headers);
+            console.log(body);
             const rawResponse = await fetch(fetchLink, {
                 method: "POST",
                 headers: headers,

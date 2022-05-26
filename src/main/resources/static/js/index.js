@@ -1,95 +1,24 @@
 import FetchService from './services/FetchService.js';
-const API = 'http://localhost:8080/mg1';
+const API = 'http://localhost:8080';
+let model = "";
 
-//const API = 'https://jsonplaceholder.typicode.com/posts';
-/**
- * /mg1
- * /mm1
- * /mms
- * /mmsk
- * /md1
- * /me1
- */
-const mg1 = "mg1";
-const mm1 = "mm1";
-const mms = "mms";
-const mmsk = "mmsk";
-const md1 = "md1";
-const me1 = "me1";
-
-let model = document.getElementById('model');
-document.getElementById('model').onchange = function() {
-    console.log(model.value);
-    switch (model.value) {
-        case "mg1":
-            document.getElementById('MG1').style.display = "flex";
-            document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "none";
-            break;
-        case "mm1":
-            document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "flex";
-            document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "none";
-            break;
-        case "mmsk":
-            document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "flex";
-            document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "none";
-            break;
-        case "mms":
-            document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "flex";
-            document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "none";
-            break;
-        case "md1":
-            document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "flex";
-            break;
-        case "me1":
-            document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "flex";
-            document.getElementById('MD1').style.display = "none";
-            break;
-
-        default:
-            break;
-    }
-};
 
 /*-- Objects --*/
 const fetchService = new FetchService();
 
 /*--Functions--*/
 async function submitForm(e, form) {
+    console.log(form);
     e.preventDefault();
     const btnSubmit = document.getElementById('btnSubmit');
     btnSubmit.disabled = true;
     setTimeout(() => btnSubmit.disabled = false, 2000);
     const jsonFormData = buildJsonFormData(form);
     const headers = buildHeaders();
-    const response = await fetchService.performPostHttpRequest(`${API}/${model.value}`, headers, jsonFormData);
+    const response = await fetchService.performPostHttpRequest(`${API}/${model}`, headers, jsonFormData);
     if(response){
-        document.getElementById('response').innerHTML = JSON.stringify(response);
-        console.log(response);
+        console.log(JSON.stringify(response));
+        mapResponse(response);
     }
     else
         alert(`An error occured.`);
@@ -110,11 +39,59 @@ function buildJsonFormData(form) {
     return jsonFormData;
 }
 
+function mapResponse(obj){
+    console.log(obj);
+    document.getElementById('p0').innerHTML = obj.p0;
+    document.getElementById('le').innerHTML = obj.lambdaE;
+    document.getElementById('wq').innerHTML = obj.wq;
+    document.getElementById('w').innerHTML = obj.w;
+    document.getElementById('l').innerHTML = obj.l;
+    document.getElementById('lq').innerHTML = obj.lq;
+}
+
 /*--Event Listeners--*/
 const sampleForm = document.querySelector("#sampleForm");
 if(sampleForm) {
     sampleForm.addEventListener("submit", function(e) {
+        model = "mmsk";
         submitForm(e, this);
     });
 }
 
+const form2 = document.querySelector('#form2');
+if(form2) {
+    form2.addEventListener("submit", function(e) {
+        model = "mm1";
+        submitForm(e, this);
+    });
+}
+
+const form3 = document.querySelector('#form3');
+if(form3) {
+    form3.addEventListener("submit", function(e) {
+        model = "mg1";
+        submitForm(e, this);
+    });
+}
+const form4 = document.querySelector('#form4');
+if(form4) {
+    form4.addEventListener("submit", function(e) {
+        model = "mms";
+        submitForm(e, this);
+    });
+}
+const form5 = document.querySelector('#form5');
+if(form5) {
+    form5.addEventListener("submit", function(e) {
+        model = "md1";
+        submitForm(e, this);
+    });
+}
+
+const form6 = document.querySelector('#form6');
+if(form6) {
+    form6.addEventListener("submit", function(e) {
+        model = "me1";
+        submitForm(e, this);
+    });
+}
