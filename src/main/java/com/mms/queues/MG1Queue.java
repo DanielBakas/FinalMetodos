@@ -18,10 +18,7 @@ package com.mms.queues;
 public class MG1Queue extends AbstractQueue {
 
     // Constructor
-    public MG1Queue(float cw, float cs, float lambda, float mu, int varianza,
-                    Distribution sDistribution) {
-        this.lambdaDistribution = Distribution.POISSON;
-        this.sDistribution = sDistribution;
+    public MG1Queue(Distribution B, float lambda, float mu, float variance, float cs, float cw){
     }
     @Override
     public float getCn(int n) throws Exception {

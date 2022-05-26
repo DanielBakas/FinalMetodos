@@ -1,6 +1,9 @@
 package com.mms.queues;
 
 public class MD1Queue extends AbstractQueue {
+
+    public MD1Queue(float lambda, float mu, float cs, float cw) {
+    }
     @Override
     public float getCn(int n) throws Exception {
         return 0;
