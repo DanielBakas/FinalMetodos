@@ -1,8 +1,6 @@
 package com.mms.backend;
 
-import com.mms.queues.MG1Queue;
-import com.mms.queues.MMSKQueue;
-import com.mms.queues.AbstractQueue;
+import com.mms.queues.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +12,18 @@ public class QueueController {
     @ResponseBody
     @PostMapping(value = "/mmsk", consumes = {"*/*"})
     public QueueResponse mmsk(@RequestBody MMSKQueue pojo) {
+        return getQueueResponse(pojo);
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/mms", consumes = {"*/*"})
+    public QueueResponse mms(@RequestBody MMsQueue pojo) {
+        return getQueueResponse(pojo);
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/mm1", consumes = {"*/*"})
+    public QueueResponse mm1(@RequestBody MM1Queue pojo) {
         return getQueueResponse(pojo);
     }
 
