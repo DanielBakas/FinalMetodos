@@ -3,6 +3,7 @@ body {
     display: flex;
     min-height: 98vh;
     align-items: center;
+    font-family: 'Lato', sans-serif;
     background-color: #f8f9fa;
   }
   /*-- /body --*/
@@ -10,6 +11,7 @@ body {
   .container {
       padding: 1rem 2.5rem 1.5rem 2.5rem;
       margin: auto;
+      width: 40%;
   }
   
   .card {
@@ -27,13 +29,22 @@ body {
   }
   /*-- /Container & Card --*/
   /*-- form --*/
-  .form-row {
-      margin-top: 1rem !important;
-      margin-bottom: 1rem !important;
-      padding: 0.5rem;
-  }
   .form-row label {
       display: block;
+  }
+
+  h1{
+      text-align: center;
+  }
+  footer{
+      position: absolute;
+      bottom: 0px;
+      color: #aaaaaa;
+      font-size: 9px;
+  }
+
+  #modellabel{
+      padding-bottom: 18px;
   }
   /*-- /form --*/
   
@@ -112,10 +123,27 @@ body {
     margin-right: auto;
     margin-left: auto;
   }
-  .w-100 {
-    width: 100%;
-  }
   .text-center {
       text-align: center;
   }
   /*-- /Utils --*/
+
+.values{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+}
+.form-row{
+    width: 30%;
+}
+
+.w-100{
+    width: 100%;
+}
+
+#modelpicker{
+    width: 20%;
+}

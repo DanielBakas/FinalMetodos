@@ -1,69 +1,80 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <title>Queue Calculator</title>
-    </head>
-    <body>
-        
-        <div class="container card card-color">
-            <form action="" id="sampleForm">
-                <h2> Queue Calculator</h2>
-                <div class="form-row">
-                    <label for="model">Queue model</label>
-                    <select class="input-text input-text-block w-100" name="model" id="model">
-                        <option value="mg1">M/G/1</option>
-                        <option value="mmsk">M/M/s/K</option>
-                    </select>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Queue Calculator</title>
+</head>
+<body>
 
-                <div id="MMSK">
-                    <div class="form-row">
-                        <label for="lambda">λ</label>
-                        <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
-                    </div>
-                    <div class="form-row">
-                        <label for="mu">𝜇</label>
-                        <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
-                    </div>
-    
-                    <div class="form-row">
-                        <label for="n">n</label>
-                        <input type="text" class="input-text input-text-block w-100" id="n" name="n">
-                    </div>
-    
-                    <div class="form-row">
-                        <label for="k">k</label>
-                        <input type="text" class="input-text input-text-block w-100" id="k" name="k">
-                    </div>
-                    <div class="form-row">
-                        <label for="s">s</label>
-                        <input type="text" class="input-text input-text-block w-100" id="s" name="s">
-                    </div>
-                    <div class="form-row">
-                        <label for="cw">cw</label>
-                        <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
-                    </div>
-                    <div class="form-row">
-                        <label for="cs">cs</label>
-                        <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
-                    </div>
-                </div>
-                
-                <div class="form-row mx-auto">
-                    <button type="submit" class="btn-submit" id="btnSubmit">
-                    Submit
-                    </button>
-                </div>
-            </form>
+<div class="container card card-color">
+    <form action="" id="sampleForm">
+        <h1> Queue Calculator</h1>
+        <div >
+            <label id="modellabel" for="model">Queue model:</label>
+            <select id="modelpicker" class="input-text input-text-block " name="model" id="model">
+                <option value="mg1">M/G/1</option>
+                <option value="mmsk">M/M/s/K</option>
+            </select>
         </div>
 
-        <div class="container card card-color">
-            <h2>Response</h2>
-            <div class="form-row mx-auto" id="response">
-                
+        <div id="MMSK" class="values">
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+
+            <div class="form-row">
+                <label for="n">n</label>
+                <input type="text" class="input-text input-text-block w-100" id="n" name="n">
+            </div>
+
+            <div class="form-row">
+                <label for="k">k</label>
+                <input type="text" class="input-text input-text-block w-100" id="k" name="k">
+            </div>
+            <div class="form-row">
+                <label for="s">s</label>
+                <input type="text" class="input-text input-text-block w-100" id="s" name="s">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
             </div>
         </div>
-        <script type="module" src="js/index.js"></script>
-    </body>
+
+        <div class="form-row mx-auto">
+            <button type="submit" class="btn-submit" id="btnSubmit">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="container card card-color">
+    <h1>Key Values</h1>
+    <div class="form-row mx-auto" id="response">
+
+    </div>
+</div>
+<script type="module" src="js/index.js"></script>
+<footer>
+    Daniel Bakas Amuchástegui,
+    Santiago Hernández Guerrero,
+    Oscar Vargas Pérez,
+    Oscar Alfredo Belmont Rodríguez
+</footer>
+</body>
 </html>
