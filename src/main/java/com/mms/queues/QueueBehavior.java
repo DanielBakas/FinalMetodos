@@ -8,7 +8,7 @@ package com.mms.queues;
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
- * Oscar Vargas Pérez                 A01027543
+ * Oscar Vargas Pérez                 A01657110
  * Oscar Alfredo Belmont Rodríguez    A01654861
  *
  * may. 25, 2022
@@ -17,9 +17,17 @@ package com.mms.queues;
 
 public interface QueueBehavior {
     // Getters & Setters
-    Distribution getDistribution();
+    Discipline getDiscipline();
 
-    void setDistribution(Distribution distribution);
+    void setDiscipline(Discipline discipline);
+
+    Distribution getLambdaDistribution();
+
+    void setLambdaDistribution(Distribution sDistribution);
+
+    Distribution getSDistribution();
+
+    void setSDistribution(Distribution sDistribution);
 
     int getK();
 
@@ -32,6 +40,10 @@ public interface QueueBehavior {
     float getMu();
 
     void setMu(int mu);
+
+    float getN();
+
+    void setN(int N);
 
     int getS();
 
