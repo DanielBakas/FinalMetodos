@@ -11,7 +11,7 @@ public class QueueController {
 
     @ResponseBody
     @PostMapping(value = "/mmsk", consumes = {"*/*"})
-    public QueueResponse mmsk(@RequestBody MMSKQueue pojo) {
+    public QueueResponse mmsk(@RequestBody MMsKQueue pojo) {
         return getQueueResponse(pojo);
     }
 
@@ -35,7 +35,7 @@ public class QueueController {
 
     @ResponseBody
     @PostMapping(value = "/me1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody ME1Queue pojo) {
+    public QueueResponse mg1(@RequestBody MEksQueue pojo) {
         return getQueueResponse(pojo);
     }
 
@@ -54,19 +54,17 @@ public class QueueController {
         }
         try {
             queueResponse = new QueueResponse();
-            queueResponse.setP0(pojo.getP0());
-            queueResponse.setPk(pojo.getPn(pojo.getK()));
-            queueResponse.setLambdaE(pojo.getLambdaE());
-            queueResponse.setWq(pojo.getWq());
-            queueResponse.setW(pojo.getW());
-            queueResponse.setLq(pojo.getLq());
-            queueResponse.setL(pojo.getL());
-            queueResponse.setCt(pojo.getC());
-
+            queueResponse.setP0(pojo.calculateP0());
+            queueResponse.setPk(pojo.calculatePn(pojo.getK()));
+            queueResponse.setLambdaE(pojo.calculateLambdaE());
+            queueResponse.setWq(pojo.calculateWq());
+            queueResponse.setW(pojo.calculateW());
+            queueResponse.setLq(pojo.calculateLq());
+            queueResponse.setL(pojo.calculateL());
+            queueResponse.setCt(pojo.calculateC());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return queueResponse;
     }
-
 }

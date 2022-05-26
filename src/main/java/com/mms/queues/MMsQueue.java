@@ -1,5 +1,6 @@
 package com.mms.queues;
 
+import org.apache.commons.math.util.MathUtils;
 /**
  * =============================================================================
  * # Final Project
@@ -15,120 +16,95 @@ package com.mms.queues;
  * =============================================================================
  */
 
-public class MMsQueue extends MMSKQueue {
+public class MMsQueue extends MMsKQueue {
 
     // Constructor
-    public MMsQueue(float cw, float cs, float lambda, float mu, int s) throws Exception {
-        super(cw, cs, lambda, mu, s, Integer.MAX_VALUE);
+    public MMsQueue(int s, float lambda, float mu, float cs, float cw) {
+        super(s, Integer.MAX_VALUE, lambda, mu, cs, cw);
     }
 
     // Methods
     @Override
-    public float getCn(int n) throws Exception {
-        if (n > this.k) return 0;
-        else if (n >= 0 && n <= this.getS()) {
-            float temp1 = this.getLambda() / this.getMu();
-            float temp2 = (float) Math.pow(temp1, n);
-            float temp3 = Factorial.calculate(n);
-            float result = temp2 / temp3;
-            return result;
-        } else if (n >= this.s && n <= this.k) {
-            float temp1 = this.getLambda() / this.getMu();
-            float temp2 = (float) Math.pow(temp1, n);
-            float temp3 = Factorial.calculate(this.getS());
-            temp3 *= (float) Math.pow(this.getS(), n - this.getS());
-            float result = temp2 / temp3;
-            return result;
-        } else throw new Exception("Invalid value for parameter 'n'.");
-    }
-
-    @Override
-    public float getLambdaE() throws Exception {
-        float temp1 = 1 - this.getPn(this.getK());
+    public float calculateLambdaE() {
+        float temp1 = 1 - this.calculatePn(this.getK());
         float result = this.getLambda() * temp1;
         return result;
     }
 
     @Override
-    public float getLq() {
-        // Product Left Side
+    public float calculateL() {
         float temp1 = this.getLambda() / this.getMu();
-        float temp2 = (float) Math.pow(temp1, this.getS());
-        float temp3 = Factorial.calculate(this.getS());
-        float temp4 = (float) Math.pow(1 - this.getRho(), 2);
-        float temp5 = temp3 * temp4;
-        float temp6 = this.getP0() * temp2 * this.getRho();
-        float temp7 = temp6 / temp5;
-        // Product Right Side
-        float temp90 = (float) Math.pow(this.getRho(),
-                this.getK() - this.getS());
-        float temp93 = this.getK() - this.getS();
-        float temp95 = 1 - this.getRho();
-        float temp96 = temp93 * temp90 * temp95;
-        float temp99 = 1 - temp90 - temp96;
-        float result = temp7 * temp99;
+        float result = this.calculateLq() + temp1;
         return result;
     }
 
     @Override
-    public float getPn(int n) throws Exception {
-        return (n > this.k) ? 0 : this.getCn(n) * this.getP0();
+    public float calculateLq() {
+        float temp1 = this.getLambda() / this.getMu();
+        float temp2 = (float) Math.pow(temp1, this.getS());
+        float temp3 = this.calculateP0() * temp2 * this.calculateRho();
+        float temp4 = (float) MathUtils.factorial(this.getS());
+        float temp5 = 1 - this.calculateRho();
+        float temp6 = (float) Math.pow(temp5, 2);
+        temp4 *= temp6;
+        float result = temp3 / temp4;
+        return result;
     }
 
     @Override
-    public float getP0() {
+    public float calculateP0() {
+        if (this.getS() == 1) return 1 - this.calculateRho();
         float temp1 = this.getLambda() / this.getMu();
-        float temp2 = (float) Math.pow(temp1, this.getS());
-        int temp3 = Factorial.calculate(this.getS());
-        float temp4 = temp2 / temp3;
-        float sum1 = 0.0f;
-        float temp5 = 0.0f;
-        float temp6 = 0.0f;
-        float temp7 = 0.0f;
+        float sum1 = 0;
+        float temp2, temp3;
         for (int n = 0; n < this.getS(); n++) {
-            temp5 = (float) Math.pow(temp1, n);
-            temp6 = Factorial.calculate(n);
-            temp7 = temp5 / temp6;
-            sum1 += temp4 + temp7;
+            temp2 = (float) Math.pow(temp1, n);
+            temp3 = (float) MathUtils.factorial(n);
+            sum1 += temp2 / temp3;
         }
-        float sum2 = 0.0f;
-        float temp10 = (float) Math.pow(temp1, this.getS());
-        float temp11 = Factorial.calculate(this.getS());
-        float temp12 = temp10 / temp11;
-        float temp13 = 0.0f;
-        for (int n = (this.getS() + 1); n <= this.getK(); n++) {
-            temp13 = (float) Math.pow(this.getRho(), n - this.getS());
-            sum2 += temp13;
-        }
-        float temp14 = temp12 * sum2;
-        float temp15 = sum1 + temp14;
-        float result = 1 / temp15;
+        float temp4 = (float) Math.pow(temp1, this.getS());
+        float temp5 = (float) MathUtils.factorial(this.getS());
+        float temp6 = temp4 / temp5;
+        float temp8 = 1 - this.calculateRho();
+        float temp9 = 1 / temp8;
+        float temp10 = temp6 * temp9;
+        float sum2 = sum1 + temp10;
+        float result = 1 / sum2;
         return result;
     }
 
     @Override
-    public String print() throws Exception {
+    public float calculateWq() { return this.calculateLq() / this.getLambda(); }
+
+    @Override
+    public String print() {
         StringBuilder result = new StringBuilder();
-        result.append("M/M/S/K queues.Queue:\n");
-        result.append("- Attributes:\n");
-        result.append("  - lambda Distribution: " + this.getLambdaDistribution() + "\n");
-        result.append("  - s Distribution: " + this.getSDistribution() + "\n");
-        result.append("  - k: " + this.getK() + "\n");
+        result.append("M/M/s Queue:\n");
+        result.append("- Kendall Attributes:\n");
+        result.append("  - A: " + this.getA() + "\n");
+        result.append("  - B: " + this.getB() + "\n");
+        result.append("  - s: " + this.getS() + "\n");
+        result.append("  - N: " + this.getN() + "\n");
+        result.append("  - K: " + this.getK() + "\n");
+        result.append("  - d: " + this.getD() + "\n");
+        result.append("- Queue Attributes:\n");
         result.append("  - lambda: " + this.getLambda() + "\n");
         result.append("  - mu: " + this.getMu() + "\n");
-        result.append("  - s: " + this.getS() + "\n");
         result.append("  - variance: " + this.getVariance() + "\n");
+        result.append("  - rho: " + this.calculateRho() + "\n");
+        result.append("- Cost Attributes:\n");
         result.append("  - cw: " + this.getCw() + "\n");
         result.append("  - cs: " + this.getCs() + "\n");
         result.append("- Results:\n");
-        result.append("  - P0: " + this.getP0() + "\n");
-        result.append("  - Pk: " + this.getPn(this.getK()) + "\n");
-        result.append("  - Lambda E: " + this.getLambdaE() + "\n");
-        result.append("  - Wq: " + this.getWq() + "\n");
-        result.append("  - W: " + this.getW() + "\n");
-        result.append("  - Lq: " + this.getLq() + "\n");
-        result.append("  - L: " + this.getL() + "\n");
-        result.append("  - C: " + this.getC() + "\n");
+        result.append("  - Cn: " + this.calculateCn(1) + "\n");
+        result.append("  - P0: " + this.calculateP0() + "\n");
+        result.append("  - Pn: " + this.calculatePn(1) + "\n");
+        result.append("- Final Results:\n");
+        result.append("  - Lq: " + this.calculateLq() + "\n");
+        result.append("  - L: " + this.calculateL() + "\n");
+        result.append("  - Wq: " + this.calculateWq() + "\n");
+        result.append("  - W: " + this.calculateW() + "\n");
+        result.append("  - C: " + this.calculateC() + "\n");
         return result.toString();
     }
 }
