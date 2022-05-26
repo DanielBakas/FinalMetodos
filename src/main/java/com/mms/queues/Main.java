@@ -61,7 +61,7 @@ public class Main {
         //System.out.println(eric6.print());
 
         // MEks | Eric 7 ✅
-        AbstractQueue eric7 = new MEksQueue(5, 25, 30, 1, 1);
-        System.out.println(eric7.print());
+        //AbstractQueue eric7 = new MEksQueue(5, 25, 30, 1, 1);
+        //System.out.println(eric7.print());
     }
 }
