@@ -33,6 +33,18 @@ public class QueueController {
         return getQueueResponse(pojo);
     }
 
+    @ResponseBody
+    @PostMapping(value = "/me1", consumes = {"*/*"})
+    public QueueResponse mg1(@RequestBody ME1Queue pojo) {
+        return getQueueResponse(pojo);
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/md1", consumes = {"*/*"})
+    public QueueResponse mg1(@RequestBody MD1Queue pojo) {
+        return getQueueResponse(pojo);
+    }
+
     private QueueResponse getQueueResponse(AbstractQueue pojo) {
         QueueResponse queueResponse;
         try {
