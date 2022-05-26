@@ -1,44 +1,94 @@
 import FetchService from './services/FetchService.js';
 const API = 'http://localhost:8080/mg1';
+
 //const API = 'https://jsonplaceholder.typicode.com/posts';
 /**
  * /mg1
  * /mm1
  * /mms
  * /mmsk
+ * /md1
+ * /me1
  */
+const mg1 = "mg1";
+const mm1 = "mm1";
+const mms = "mms";
+const mmsk = "mmsk";
+const md1 = "md1";
+const me1 = "me1";
 
-/*
-const htmlResponse = document.querySelector("#response");
-const tpl = document.createDocumentFragment();
+let model = document.getElementById('model');
+document.getElementById('model').onchange = function() {
+    console.log(model.value);
+    switch (model.value) {
+        case "mg1":
+            document.getElementById('MG1').style.display = "block";
+            document.getElementById('MMSK').style.display = "none";
+            document.getElementById('MM1').style.display = "none";
+            document.getElementById('MMS').style.display = "none";
+            document.getElementById('ME1').style.display = "none";
+            document.getElementById('MD1').style.display = "none";
+            break;
+        case "mm1":
+            document.getElementById('MG1').style.display = "none";
+            document.getElementById('MMSK').style.display = "none";
+            document.getElementById('MM1').style.display = "block";
+            document.getElementById('MMS').style.display = "none";
+            document.getElementById('ME1').style.display = "none";
+            document.getElementById('MD1').style.display = "none";
+            break;
+        case "mmsk":
+            document.getElementById('MG1').style.display = "none";
+            document.getElementById('MMSK').style.display = "block";
+            document.getElementById('MM1').style.display = "none";
+            document.getElementById('MMS').style.display = "none";
+            document.getElementById('ME1').style.display = "none";
+            document.getElementById('MD1').style.display = "none";
+            break;
+        case "mms":
+            document.getElementById('MG1').style.display = "none";
+            document.getElementById('MMSK').style.display = "none";
+            document.getElementById('MM1').style.display = "none";
+            document.getElementById('MMS').style.display = "block";
+            document.getElementById('ME1').style.display = "none";
+            document.getElementById('MD1').style.display = "none";
+            break;
+        case "md1":
+            document.getElementById('MG1').style.display = "none";
+            document.getElementById('MMSK').style.display = "none";
+            document.getElementById('MM1').style.display = "none";
+            document.getElementById('MMS').style.display = "none";
+            document.getElementById('ME1').style.display = "none";
+            document.getElementById('MD1').style.display = "block";
+            break;
+        case "me1":
+            document.getElementById('MG1').style.display = "none";
+            document.getElementById('MMSK').style.display = "none";
+            document.getElementById('MM1').style.display = "none";
+            document.getElementById('MMS').style.display = "none";
+            document.getElementById('ME1').style.display = "block";
+            document.getElementById('MD1').style.display = "none";
+            break;
 
-fetch('${API}/mm1')
-.then(response => console.log(response.json()));  
-*/
-
+        default:
+            break;
+    }
+};
 
 /*-- Objects --*/
 const fetchService = new FetchService();
 
 /*--Functions--*/
 async function submitForm(e, form) {
-    // 1. Prevent reloading page
     e.preventDefault();
-    // 2. Submit the form
-    // 2.1 User Interaction
     const btnSubmit = document.getElementById('btnSubmit');
     btnSubmit.disabled = true;
     setTimeout(() => btnSubmit.disabled = false, 2000);
-    // 2.2 Build JSON body
     const jsonFormData = buildJsonFormData(form);
-    // 2.3 Build Headers
     const headers = buildHeaders();
-    // 2.4 Request & Response
-    const response = await fetchService.performPostHttpRequest(`${API}`, headers, jsonFormData); // Uses JSON Placeholder
-    console.log('Response: '+ response);
-    // 2.5 Inform user of result
+    const response = await fetchService.performPostHttpRequest(`${API}/${model.value}`, headers, jsonFormData);
     if(response){
-        //window.location = `/success.html?FirstName=${response.FirstName}&LastName=${response.LastName}&Email=${response.Email}&id=${response.id}`;
+        document.getElementById('response').innerHTML = JSON.stringify(response);
         console.log(response);
     }
     else
@@ -59,7 +109,6 @@ function buildJsonFormData(form) {
     }
     return jsonFormData;
 }
-/*--/Functions--*/
 
 /*--Event Listeners--*/
 const sampleForm = document.querySelector("#sampleForm");

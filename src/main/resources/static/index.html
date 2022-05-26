@@ -14,15 +14,20 @@
 <div class="container card card-color">
     <form action="" id="sampleForm">
         <h1> Queue Calculator</h1>
-        <div>
-            <label id="modellabel" for="model">Queue model:</label>
-            <select id="modelpicker" class="input-text input-text-block " name="model" id="model">
+        <div class="form-row">
+            <label for="model">Queue model</label>
+            <select class="input-text input-text-block w-100" name="model" id="model">
                 <option value="mg1">M/G/1</option>
                 <option value="mmsk">M/M/s/K</option>
+                <option value="mm1">M/M/1</option>
+                <option value="mms">M/M/s</option>
+                <option value="md1">M/D/1</option>
+                <option value="me1">M/E/1</option>
             </select>
         </div>
 
-        <div id="MMSK" class="values">
+        <div id="MMSK" style = "display: none">
+            <h3>MMSK inputs</h3>
             <div class="form-row">
                 <label for="lambda">λ</label>
                 <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
@@ -32,10 +37,12 @@
                 <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
             </div>
 
+            <!-- In case we may need an N
             <div class="form-row">
                 <label for="n">n</label>
                 <input type="text" class="input-text input-text-block w-100" id="n" name="n">
             </div>
+            -->
 
             <div class="form-row">
                 <label for="k">k</label>
@@ -54,6 +61,152 @@
                 <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
             </div>
         </div>
+
+        <div id="MG1" style = "display: none">
+            <h3>MG1 inputs</h3>
+            <label for="distro">Distribution</label>
+            <select class="input-text input-text-block w-100" name="Distribution" id="Distribution">
+                <option value="EXPONENTIAL">EXPONENTIAL</option>
+                <option value="GAMMA">GAMMA</option>
+                <option value="LOGNORMAL">LOGNORMAL</option>
+                <option value="POISSON">POISSON</option>
+            </select>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+
+            <div class="form-row">
+                <label for="variance">Variance</label>
+                <input type="text" class="input-text input-text-block w-100" id="variance" name="variance">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
+            </div>
+        </div>
+
+
+        <div id="MM1" style = "display: none">
+            <h3>MM1 Inputs</h3>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
+            </div>
+        </div>
+
+        <div id="MMS" style = "display: none">
+            <h3>MMS inputs</h3>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="s">s</label>
+                <input type="text" class="input-text input-text-block w-100" id="s" name="s">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
+            </div>
+        </div>
+
+        <div id="MD1" style = "display: none">
+            <h3>MD1 inputs</h3>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100"  name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" name="cs">
+            </div>
+        </div>
+
+        <div id="MMS" style = "display: none">
+            <h3>MMS inputs</h3>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100" name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="s">s</label>
+                <input type="text" class="input-text input-text-block w-100" name="s">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100" name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100" name="cs">
+            </div>
+        </div>
+
+        <div id="ME1" style = "display: none">
+            <h3>ME1 inputs</h3>
+            <div class="form-row">
+                <label for="lambda">λ</label>
+                <input type="text" class="input-text input-text-block w-100"  name="lambda">
+            </div>
+            <div class="form-row">
+                <label for="mu">𝜇</label>
+                <input type="text" class="input-text input-text-block w-100" name="mu">
+            </div>
+            <div class="form-row">
+                <label for="ew">ew</label>
+                <input type="text" class="input-text input-text-block w-100" name="ew">
+            </div>
+            <div class="form-row">
+                <label for="cw">cw</label>
+                <input type="text" class="input-text input-text-block w-100"  name="cw">
+            </div>
+            <div class="form-row">
+                <label for="cs">cs</label>
+                <input type="text" class="input-text input-text-block w-100"  name="cs">
+            </div>
+        </div>
+
 
         <div class="form-row mx-auto">
             <button type="submit" class="btn-submit" id="btnSubmit">
