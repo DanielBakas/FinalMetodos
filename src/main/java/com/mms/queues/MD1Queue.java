@@ -5,32 +5,31 @@ public class MD1Queue extends AbstractQueue {
     public MD1Queue(float lambda, float mu, float cs, float cw) {
     }
     @Override
-    public float getCn(int n) throws Exception {
-        return 0;
-    }
-
-    @Override
-    public float getLambdaE() throws Exception {
-        return 0;
-    }
-
-    @Override
-    public float getLq() {
-        return 0;
-    }
-
-    @Override
-    public float getPn(int n) throws Exception {
-        return 0;
-    }
-
-    @Override
-    public float getP0() {
-        return 0;
-    }
-
-    @Override
-    public String print() throws Exception {
+    public String print() {
         return null;
+    }
+    @Override
+    public float calculateCn(int n) {
+        return 0;
+    }
+    @Override
+    public float calculateLambdaE() {
+        return 0;
+    }
+    @Override
+    public float calculateL() {
+        return 0;
+    }
+    @Override
+    public float calculateLq() {
+        return 0;
+    }
+    @Override
+    public float calculatePn(int n) {
+        return 0;
+    }
+    @Override
+    public float calculateP0() {
+        return 0;
     }
 }

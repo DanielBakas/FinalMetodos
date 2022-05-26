@@ -18,7 +18,7 @@ package com.mms.queues;
 public class Main {
     public static void main(String[] args) {
         //MM1 | Nosotros 1 ✅
-        //MM1Queue nosotros1 = new MM1Queue(2, 3, 0, 0);
+        //MM1Queue nosotros1 = new MM1Queue(2, 3, 100, 101);
         //System.out.println(nosotros1.print());
 
         //MM1 | Eric 1 ✅
@@ -34,11 +34,11 @@ public class Main {
         //System.out.println(eric3.print());
 
         // MMs | Nosotros 2 ✅
-        //AbstractQueue nosotros2 = new MMsQueue(2, 2, 3, 0, 0);
+        //AbstractQueue nosotros2 = new MMsQueue(2, 2, 3, 100, 101);
         //System.out.println(nosotros2.print());
 
         // MMsK | Nosotros 3 ✅
-        //AbstractQueue nosotros3 = new MMsKQueue(1, 3, 2, 3, 0, 0);
+        //AbstractQueue nosotros3 = new MMsKQueue(1, 3, 2, 3, 100, 100);
         //System.out.println(nosotros3.print());
 
         //MMs | Eric 4 ❌: Stack Overflow in Factorial (too many servers)
@@ -57,13 +57,11 @@ public class Main {
         //System.out.println(eric5.print());
 
         // MEks | Eric 6 ✅
-        //AbstractQueue eric6 = new MEksQueue(Distribution.EXPONENTIAL, 1, 2, 3
-        //        , 2, 2);
+        //AbstractQueue eric6 = new MEksQueue(1, 2, 3, 2, 2);
         //System.out.println(eric6.print());
 
         // MEks | Eric 7 ✅
-        //AbstractQueue eric7 = new MEksQueue(Distribution.EXPONENTIAL, 5, 25,
-        //        30, 1, 1);
-        //System.out.println(eric7.print());
+        AbstractQueue eric7 = new MEksQueue(5, 25, 30, 1, 1);
+        System.out.println(eric7.print());
     }
 }

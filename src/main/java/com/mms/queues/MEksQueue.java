@@ -19,10 +19,10 @@ public class MEksQueue extends AbstractQueue {
     protected float kErlang;
 
     // Constructor
-    public MEksQueue(Distribution B, float kErlang, float lambda, float mu,
-                     float cs, float cw) {
+    public MEksQueue(float kErlang, float lambda, float mu, float cs,
+                     float cw) {
         this.A = Distribution.POISSON;
-        this.B = B;
+        this.B = Distribution.EXPONENTIAL;
         this.s = 1;
         this.N = Integer.MAX_VALUE;
         this.K = Integer.MAX_VALUE;
