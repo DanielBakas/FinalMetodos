@@ -15,28 +15,11 @@ package com.mms.queues;
  * =============================================================================
  */
 
-public class MMSKQueue extends AbstractQueue {
+public class MMsQueue extends MMSKQueue {
 
     // Constructor
-    public MMSKQueue(float cw, float cs, float lambda, float mu, int s, int k) {
-        this.cs = cs;
-        this.cw = cw;
-        this.discipline = Discipline.FCFS;
-        this.k = k;
-        this.lambda = lambda;
-        this.lambdaDistribution = Distribution.POISSON;
-        this.mu = mu;
-        this.N = Integer.MAX_VALUE;
-        this.s = s;
-        this.sDistribution = Distribution.EXPONENTIAL;
-        this.variance = 0.0f;
-    }
-
-    // Getters & Setters
-    @Override
-    public void setS(int s) throws Exception {
-        if (s <= this.k) this.s = s;
-        else throw new Exception("Attribute 's' can not be greater than 'k'.");
+    public MMsQueue(float cw, float cs, float lambda, float mu, int s) throws Exception {
+        super(cw, cs, lambda, mu, s, Integer.MAX_VALUE);
     }
 
     // Methods

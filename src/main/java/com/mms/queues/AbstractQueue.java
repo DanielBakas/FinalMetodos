@@ -8,7 +8,7 @@ package com.mms.queues;
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
- * Oscar Vargas Pérez                 A01027543
+ * Oscar Vargas Pérez                 A01657110
  * Oscar Alfredo Belmont Rodríguez    A01654861
  *
  * May 12, 2022
@@ -16,15 +16,21 @@ package com.mms.queues;
  */
 
 public abstract class AbstractQueue implements QueueBehavior, CostBehavior {
-    /* Attributes*/
+    // Attributes
     protected float cs;
     protected float cw;
-    protected Distribution distribution;
+    protected Discipline discipline;
     protected int k;
     protected float lambda;
+
+    protected Distribution lambdaDistribution;
     protected float mu;
+    protected float N;
     protected int s;
+    protected Distribution sDistribution;
     protected float variance;
+
+    // Accessors
     @Override
     public float getC() {
         float temp1 = this.getLq() * this.getCw();
@@ -39,9 +45,12 @@ public abstract class AbstractQueue implements QueueBehavior, CostBehavior {
     public float getCw() { return this.cw; }
     @Override
     public void setCw(float cw) { this.cw = cw; }
-    public Distribution getDistribution() { return this.distribution; }
     @Override
-    public void setDistribution(Distribution distribution) { this.distribution = distribution; }
+    public Discipline getDiscipline() { return this.discipline; }
+    @Override
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
+    }
     @Override
     public int getK() { return this.k; }
     @Override
@@ -50,10 +59,18 @@ public abstract class AbstractQueue implements QueueBehavior, CostBehavior {
     public float getLambda() { return this.lambda; }
     @Override
     public void setLambda(int lambda) { this.lambda = lambda; }
+    public Distribution getLambdaDistribution() { return this.lambdaDistribution; }
+    @Override
+    public void setLambdaDistribution(Distribution lambdaDistribution) { this.lambdaDistribution = lambdaDistribution; }
     @Override
     public float getMu() { return this.mu; }
     @Override
     public void setMu(int mu) { this.mu = mu; }
+
+    @Override
+    public float getN() { return this.N; }
+    @Override
+    public void setN(int N) { this.N = N; }
     @Override
     public float getRho() { return this.getLambda() / (this.getS() * this.getMu()); }
     @Override
@@ -61,10 +78,15 @@ public abstract class AbstractQueue implements QueueBehavior, CostBehavior {
     @Override
     public void setS(int s) throws Exception { this.s = s; }
     @Override
+    public Distribution getSDistribution() { return this.sDistribution; }
+    @Override
+    public void setSDistribution(Distribution sDistribution) { this.sDistribution = sDistribution; }
+    @Override
     public float getVariance() { return this.variance; }
     @Override
-    public void setVariance(int variance) { this.variance = variance; } /*
-    Methods*/
+    public void setVariance(int variance) { this.variance = variance; }
+
+    // Methods
     @Override
     public float getL() throws Exception { return this.getLambdaE() * this.getW(); }
     @Override
