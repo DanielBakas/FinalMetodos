@@ -1,34 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<script>
-    let params =
-        {
-            "s": 1,
-            "k": 3,
-            "lambda": 2,
-            "mu": 3
-        }
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Queue Calculator</title>
+    </head>
+    <body>
+        
+        <div class="container card card-color">
+            <form action="" id="sampleForm">
+                <h2> Queue Calculator</h2>
+                <div class="form-row">
+                    <label for="model">Queue model</label>
+                    <select class="input-text input-text-block w-100" name="model" id="model">
+                        <option value="mg1">M/G/1</option>
+                        <option value="mmsk">M/M/s/K</option>
+                    </select>
+                </div>
 
-    let getData = () => {
-        // POST params and get JSON results
-        // Display
-        return 0
-    }
-</script>
+                <div id="MMSK">
+                    <div class="form-row">
+                        <label for="lambda">λ</label>
+                        <input type="text" class="input-text input-text-block w-100" id="lambda" name="lambda">
+                    </div>
+                    <div class="form-row">
+                        <label for="mu">𝜇</label>
+                        <input type="text" class="input-text input-text-block w-100" id="mu" name="mu">
+                    </div>
+    
+                    <div class="form-row">
+                        <label for="n">n</label>
+                        <input type="text" class="input-text input-text-block w-100" id="n" name="n">
+                    </div>
+    
+                    <div class="form-row">
+                        <label for="k">k</label>
+                        <input type="text" class="input-text input-text-block w-100" id="k" name="k">
+                    </div>
+                    <div class="form-row">
+                        <label for="s">s</label>
+                        <input type="text" class="input-text input-text-block w-100" id="s" name="s">
+                    </div>
+                    <div class="form-row">
+                        <label for="cw">cw</label>
+                        <input type="text" class="input-text input-text-block w-100" id="cw" name="cw">
+                    </div>
+                    <div class="form-row">
+                        <label for="cs">cs</label>
+                        <input type="text" class="input-text input-text-block w-100" id="cs" name="cs">
+                    </div>
+                </div>
+                
+                <div class="form-row mx-auto">
+                    <button type="submit" class="btn-submit" id="btnSubmit">
+                    Submit
+                    </button>
+                </div>
+            </form>
+        </div>
 
-<body>
-Hello World
-<br>
-Sample Request:
-<pre id="sample"></pre>
-
-<button onclick="getData()">Click Me</button>
-
-
-</body>
+        <div class="container card card-color">
+            <h2>Response</h2>
+            <div class="form-row mx-auto" id="response">
+                
+            </div>
+        </div>
+        <script type="module" src="js/index.js"></script>
+    </body>
 </html>

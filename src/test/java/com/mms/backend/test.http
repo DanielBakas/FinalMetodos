@@ -2,14 +2,14 @@ POST http://localhost:8080/mmsk
 Content-Type: application/json
 Accept: application/json
 
-{
-  "s": 1,
-  "k": 3,
-  "lambda": 2,
-  "mu": 3,
-  "cw": 15,
-  "cs": 12
-}
+    {
+      "s": 1,
+      "k": 3,
+      "lambda": 2,
+      "mu": 3,
+      "cw": 15,
+      "cs": 12
+    }
 
 ###
 ###
