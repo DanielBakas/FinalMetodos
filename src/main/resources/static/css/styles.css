@@ -144,6 +144,6 @@ body {
     width: 100%;
 }
 
-#modelpicker{
-    width: 20%;
+#model{
+    width: 70% !important;
 }

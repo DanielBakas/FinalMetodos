@@ -22,7 +22,7 @@ document.getElementById('model').onchange = function() {
     console.log(model.value);
     switch (model.value) {
         case "mg1":
-            document.getElementById('MG1').style.display = "block";
+            document.getElementById('MG1').style.display = "flex";
             document.getElementById('MMSK').style.display = "none";
             document.getElementById('MM1').style.display = "none";
             document.getElementById('MMS').style.display = "none";
@@ -32,14 +32,14 @@ document.getElementById('model').onchange = function() {
         case "mm1":
             document.getElementById('MG1').style.display = "none";
             document.getElementById('MMSK').style.display = "none";
-            document.getElementById('MM1').style.display = "block";
+            document.getElementById('MM1').style.display = "flex";
             document.getElementById('MMS').style.display = "none";
             document.getElementById('ME1').style.display = "none";
             document.getElementById('MD1').style.display = "none";
             break;
         case "mmsk":
             document.getElementById('MG1').style.display = "none";
-            document.getElementById('MMSK').style.display = "block";
+            document.getElementById('MMSK').style.display = "flex";
             document.getElementById('MM1').style.display = "none";
             document.getElementById('MMS').style.display = "none";
             document.getElementById('ME1').style.display = "none";
@@ -49,7 +49,7 @@ document.getElementById('model').onchange = function() {
             document.getElementById('MG1').style.display = "none";
             document.getElementById('MMSK').style.display = "none";
             document.getElementById('MM1').style.display = "none";
-            document.getElementById('MMS').style.display = "block";
+            document.getElementById('MMS').style.display = "flex";
             document.getElementById('ME1').style.display = "none";
             document.getElementById('MD1').style.display = "none";
             break;
@@ -59,14 +59,14 @@ document.getElementById('model').onchange = function() {
             document.getElementById('MM1').style.display = "none";
             document.getElementById('MMS').style.display = "none";
             document.getElementById('ME1').style.display = "none";
-            document.getElementById('MD1').style.display = "block";
+            document.getElementById('MD1').style.display = "flex";
             break;
         case "me1":
             document.getElementById('MG1').style.display = "none";
             document.getElementById('MMSK').style.display = "none";
             document.getElementById('MM1').style.display = "none";
             document.getElementById('MMS').style.display = "none";
-            document.getElementById('ME1').style.display = "block";
+            document.getElementById('ME1').style.display = "flex";
             document.getElementById('MD1').style.display = "none";
             break;
 
