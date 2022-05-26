@@ -16,7 +16,7 @@ package com.mms.queues;
  */
 
 public interface CostBehavior {
-    public float getC();
+    public float calculateC();
 
     public float getCs();
 
