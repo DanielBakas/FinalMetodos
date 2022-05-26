@@ -21,7 +21,7 @@ class MMSKQueueTest {
         }
     }
 
-    //    @Test
+    @Test
     void mm1() {
         try {
             mmskQueue = new MM1Queue(120, 101, 161, 162);
@@ -35,7 +35,7 @@ class MMSKQueueTest {
         }
     }
 
-    //    @Test
+    @Test
     void mms() {
         try {
             mmskQueue = new MMsQueue(1, 50, 161, 162, 111);
@@ -50,6 +50,7 @@ class MMSKQueueTest {
     }
 
 
+    @Test
     void mg1() {
         try {
             MG1Queue mg1Queue = new MG1Queue(Distribution.LOGNORMAL, 13f, 14f, 0.99f, 101f, 120f);
@@ -63,7 +64,7 @@ class MMSKQueueTest {
         }
     }
 
-    //    @Test
+    @Test
     void md1() {
         try {
             MD1Queue queue = new MD1Queue(2f, 3f, 1f, 1f);
@@ -77,6 +78,7 @@ class MMSKQueueTest {
         }
     }
 
+    @Test
     void me1() {
         try {
             ME1Queue queue = new ME1Queue(2f, 3f, 1f, 2f, 2f);
