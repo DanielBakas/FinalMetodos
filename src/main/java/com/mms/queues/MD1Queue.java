@@ -1,35 +1,26 @@
 package com.mms.queues;
 
+/**
+ * =============================================================================
+ * # Final Project
+ *
+ * Module | `MD1Queue.java`
+ *
+ * Daniel Bakas Amuchástegui          A01657103
+ * Santiago Hernández Guerrero        A01027543
+ * Oscar Vargas Pérez                 A01657110
+ * Oscar Alfredo Belmont Rodríguez    A01654861
+ *
+ * May 12, 2022
+ * =============================================================================
+ */
+
+/*
+
 public class MD1Queue extends AbstractQueue {
 
     public MD1Queue(float lambda, float mu, float cs, float cw) {
     }
-    @Override
-    public String print() {
-        return null;
-    }
-    @Override
-    public float calculateCn(int n) {
-        return 0;
-    }
-    @Override
-    public float calculateLambdaE() {
-        return 0;
-    }
-    @Override
-    public float calculateL() {
-        return 0;
-    }
-    @Override
-    public float calculateLq() {
-        return 0;
-    }
-    @Override
-    public float calculatePn(int n) {
-        return 0;
-    }
-    @Override
-    public float calculateP0() {
-        return 0;
-    }
 }
+
+ */

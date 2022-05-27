@@ -17,34 +17,10 @@ package com.mms.queues;
 
 public class Main {
     public static void main(String[] args) {
-        //MM1 1 ✅
-        //MM1Queue mm1_1 = new MM1Queue(2, 3, 100, 101);
-        //System.out.println(mm1_1.print());
-
-        //MM1 2 ✅
-        //AbstractQueue mm1_2 = new MM1Queue(161, 162, 101, 120);
-        //System.out.println(mm1_2.print());
-
-        //MM1 3 ✅
-        //AbstractQueue mm1_3 = new MM1Queue(100, 300, 101, 120);
-        //System.out.println(mm1_3.print());
-
-        //MMs 1 ❌: Stack Overflow in Factorial (too many servers)
-        //AbstractQueue mms_1 = new MMsQueue(111, 161, 162, 50, 1);
-        //System.out.println(mms_1.print());
-
-        // MMs 2 ✅
-        //AbstractQueue mms_2 = new MMsQueue(2, 2, 3, 100, 101);
-        //System.out.println(mms_2.print());
-
-        // MMsK 1 ✅
-        //AbstractQueue mmsk_1 = new MMsKQueue(1, 3, 2, 3, 100, 100);
-        //System.out.println(mmsk_1.print());
-
-        //MMsK 2 ❌: Stack Overflow in Factorial (too many servers)
-        //AbstractQueue mmsk_2 = new MMsKQueue(34, 2000000, 12345, 21345, 299999
-        //        , 299999);
-        //System.out.println(mmsk_2.print());
+        //MMsK 2
+        AbstractQueue mmsk_2 = new MMsKQueue(34, 2000000, 12345, 21345, 299999,
+                299999);
+        System.out.println(mmsk_2);
 
         // MG1 1 ✅
         //AbstractQueue mg1_1 = new MG1Queue(Distribution.EXPONENTIAL, 13, 14,

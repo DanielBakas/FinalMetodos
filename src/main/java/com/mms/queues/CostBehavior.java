@@ -15,14 +15,8 @@ package com.mms.queues;
  * =============================================================================
  */
 
+import java.math.BigDecimal;
+
 public interface CostBehavior {
-    public float calculateC();
-
-    public float getCs();
-
-    public void setCs(float cs);
-
-    public float getCw();
-
-    public void setCw(float cw);
+    BigDecimal calculateCT();
 }

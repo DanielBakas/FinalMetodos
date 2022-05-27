@@ -1,6 +1,8 @@
 package com.mms.queues;
 
-import org.apache.commons.math.util.MathUtils;
+import com.mms.util.Util;
+
+import java.math.BigDecimal;
 /**
  * =============================================================================
  * # Final Project
@@ -17,7 +19,27 @@ import org.apache.commons.math.util.MathUtils;
  */
 
 public class MMsKQueue extends AbstractQueue {
-
+    // Constructor
+    public MMsKQueue(long s, long K, long lambda, long mu, double cs,
+                     double cw) {
+        // Main Attributes
+        this.name = "M/M/s/K";
+        // Kendall Attributes
+        this.A = Distribution.POISSON;
+        this.B = Distribution.EXPONENTIAL;
+        this.s = new BigDecimal(s);
+        this.N = Util.limit;
+        this.K = new BigDecimal(K);
+        this.d = Discipline.FCFS;
+        // Queue Attributes
+        this.lambda = new BigDecimal(lambda);
+        this.mu = new BigDecimal(mu);
+        // Cost Attributes
+        this.cs = new BigDecimal(cs);
+        this.cw = new BigDecimal(cw);
+    }
+}
+/*
     // Constructor
     public MMsKQueue(int s, int K, float lambda, float mu, float cs, float cw) {
         // Kendall Attributes
@@ -30,7 +52,7 @@ public class MMsKQueue extends AbstractQueue {
         // Queue Attributes
         this.lambda = lambda;
         this.mu = mu;
-        this.variance = 0;
+        this.std = 0;
         // Cost Attributes
         this.cs = cs;
         this.cw = cw;
@@ -38,7 +60,7 @@ public class MMsKQueue extends AbstractQueue {
 
     @Override
     public float calculateCn(int n) {
-        if (!this.validateN(n)) return 0;
+        if (!this.nIsValid(n)) return 0;
         if (n >= 0 && n <= this.getS()) {
             float temp1 = this.getLambda() / this.getMu();
             float temp2 = (float) Math.pow(temp1, n);
@@ -57,7 +79,8 @@ public class MMsKQueue extends AbstractQueue {
     }
     // Calculation Methods
     @Override
-    public float calculateL() { return this.calculateLambdaE() * this.calculateW(); }
+    public float calculateL() { return this.calculateLambdaE() * this
+    .calculateW(); }
 
     @Override
     public float calculateLq() {
@@ -113,7 +136,7 @@ public class MMsKQueue extends AbstractQueue {
     @Override
     public float calculatePn(int n) {
         // TODO: Replace Condition with Exception
-        if (!this.validateN(n)) return 0;
+        if (!this.nIsValid(n)) return 0;
         return this.calculateCn(n) * this.calculateP0();
     }
 
@@ -125,7 +148,8 @@ public class MMsKQueue extends AbstractQueue {
     }
 
     @Override
-    public float calculateWq() { return this.calculateLq() / this.calculateLambdaE(); }
+    public float calculateWq() { return this.calculateLq() / this
+    .calculateLambdaE(); }
 
     @Override
     public String print() {
@@ -141,7 +165,7 @@ public class MMsKQueue extends AbstractQueue {
         result.append("- Queue Attributes:\n");
         result.append("  - lambda: " + this.getLambda() + "\n");
         result.append("  - mu: " + this.getMu() + "\n");
-        result.append("  - variance: " + this.getVariance() + "\n");
+        result.append("  - variance: " + this.getStd() + "\n");
         result.append("  - rho: " + this.calculateRho() + "\n");
         result.append("- Cost Attributes:\n");
         result.append("  - cw: " + this.getCw() + "\n");
@@ -160,3 +184,5 @@ public class MMsKQueue extends AbstractQueue {
         return result.toString();
     }
 }
+
+ */

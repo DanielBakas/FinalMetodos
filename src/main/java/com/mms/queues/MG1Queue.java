@@ -15,6 +15,8 @@ package com.mms.queues;
  * =============================================================================
  */
 
+/*
+
 public class MG1Queue extends AbstractQueue {
 
     // Constructor
@@ -28,7 +30,7 @@ public class MG1Queue extends AbstractQueue {
         this.d = Discipline.FCFS;
         this.lambda = lambda;
         this.mu = mu;
-        this.variance = variance;
+        this.std = variance;
         this.cs = cs;
         this.cw = cw;
     }
@@ -37,11 +39,13 @@ public class MG1Queue extends AbstractQueue {
     @Override
     public float calculateLambdaE() { return 0; }
     @Override
-    public float calculateL() { return this.calculateRho() + this.calculateLq(); }
+    public float calculateL() { return this.calculateRho() + this.calculateLq
+    (); }
+
     @Override
     public float calculateLq() {
         float temp1 = (float) Math.pow(this.getLambda(), 2);
-        float temp2 = (float) Math.pow(this.getVariance(), 2);
+        float temp2 = 1 / (float) Math.pow(this.getLambda(), 2);
         float temp3 = (float) Math.pow(this.calculateRho(), 2);
         float temp4 = (temp1 * temp2) + temp3;
         float temp5 = 2 * (1 - this.calculateRho());
@@ -50,7 +54,7 @@ public class MG1Queue extends AbstractQueue {
     }
     @Override
     public float calculatePn(int n) {
-        if (!this.validateN(n)) return 0;
+        if (!this.nIsValid(n)) return 0;
         float temp = (float) Math.pow(this.calculateRho(), n);
         float result = temp * this.calculateP0();
         return result;
@@ -73,7 +77,7 @@ public class MG1Queue extends AbstractQueue {
         result.append("- Queue Attributes:\n");
         result.append("  - lambda: " + this.getLambda() + "\n");
         result.append("  - mu: " + this.getMu() + "\n");
-        result.append("  - variance: " + this.getVariance() + "\n");
+        result.append("  - variance: " + this.getStd() + "\n");
         result.append("  - rho: " + this.calculateRho() + "\n");
         result.append("- Cost Attributes:\n");
         result.append("  - cw: " + this.getCw() + "\n");
@@ -90,3 +94,4 @@ public class MG1Queue extends AbstractQueue {
         return result.toString();
     }
 }
+*/

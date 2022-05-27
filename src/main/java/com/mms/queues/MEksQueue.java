@@ -15,6 +15,8 @@ package com.mms.queues;
  * =============================================================================
  */
 
+/*
+
 public class MEksQueue extends AbstractQueue {
     protected float kErlang;
 
@@ -30,7 +32,7 @@ public class MEksQueue extends AbstractQueue {
         this.kErlang = kErlang;
         this.lambda = lambda;
         this.mu = mu;
-        this.variance = 0;
+        this.std = 0;
         this.cs = cs;
         this.cw = cw;
     }
@@ -48,7 +50,8 @@ public class MEksQueue extends AbstractQueue {
         return 0;
     }
     @Override
-    public float calculateL() { return this.calculateRho() + this.calculateLq(); }
+    public float calculateL() { return this.calculateRho() + this.calculateLq
+    (); }
     @Override
     public float calculateLq() {
         float temp1 = 1 + this.getkErlang();
@@ -63,7 +66,7 @@ public class MEksQueue extends AbstractQueue {
     }
     @Override
     public float calculatePn(int n) {
-        if (!this.validateN(n)) return 0;
+        if (!this.nIsValid(n)) return 0;
         float temp = (float) Math.pow(this.calculateRho(), n);
         float result = temp * this.calculateP0();
         return result;
@@ -86,7 +89,7 @@ public class MEksQueue extends AbstractQueue {
         result.append("  - kErlang: " + this.getkErlang() + "\n");
         result.append("  - lambda: " + this.getLambda() + "\n");
         result.append("  - mu: " + this.getMu() + "\n");
-        result.append("  - variance: " + this.getVariance() + "\n");
+        result.append("  - variance: " + this.getStd() + "\n");
         result.append("  - rho: " + this.calculateRho() + "\n");
         result.append("- Cost Attributes:\n");
         result.append("  - cw: " + this.getCw() + "\n");
@@ -103,3 +106,5 @@ public class MEksQueue extends AbstractQueue {
         return result.toString();
     }
 }
+
+ */

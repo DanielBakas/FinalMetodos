@@ -4,7 +4,7 @@ package com.mms.queues;
  * =============================================================================
  * # FinalMetodos
  *
- * Module | `QueueBehavior.java`
+ * Module | `QueueCalculationBehavior.java`
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
@@ -15,32 +15,8 @@ package com.mms.queues;
  * =============================================================================
  */
 
-public interface KendallQueueBehavior {
-    // Accessors
-    Distribution getA();
+import java.math.BigDecimal;
 
-    void setA(Distribution A);
-
-    Distribution getB();
-
-    void setB(Distribution B);
-
-    int getS();
-
-    void setS(int s);
-
-    int getN();
-
-    void setN(int N);
-
-    int getK();
-
-    void setK(int K);
-
-    Discipline getD();
-
-    void setD(Discipline D);
-
-    // Methods
-    String print();
+public interface QueueValidationBehavior {
+    boolean isValid(BigDecimal value);
 }
