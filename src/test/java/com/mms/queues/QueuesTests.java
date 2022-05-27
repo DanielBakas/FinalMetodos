@@ -23,9 +23,6 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QueuesTests {
-    BigDecimal one = BigDecimal.ONE;
-    BigDecimal zero = BigDecimal.ZERO;
-
     @Test
     @DisplayName("MM1Queue(2, 3, 100, 100)")
     void mm1_1() {
