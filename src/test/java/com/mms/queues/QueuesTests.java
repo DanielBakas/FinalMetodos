@@ -23,10 +23,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QueuesTests {
+    private final float delta = Util.decimalLimit;
     private Distribution B;
     private int s, K, lambda, mu, cs, cw;
-
-    private float delta = Util.decimalLimit;
 
     @Test
     @DisplayName("MM1Queue(2, 3, 100, 100)")
@@ -59,10 +58,10 @@ class QueuesTests {
         cw = 120;
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
         assertEquals(0.9938f, queue.calculateRho(), delta);
-        assertEquals(160.0061f, queue.calculateLq(), delta);
-        assertEquals(161.0f, queue.calculateL(), delta);
+        assertEquals(160.0062f, queue.calculateLq(), delta);
+        assertEquals(161, queue.calculateL(), delta);
         assertEquals(0.9938f, queue.calculateWq(), delta);
-        assertEquals(1.0f, queue.calculateW(), delta);
+        assertEquals(1, queue.calculateW(), delta);
         assertEquals(19301.742f, queue.calculateCT(), delta);
     }
 
@@ -80,9 +79,9 @@ class QueuesTests {
         assertEquals(0.3333f, queue.calculateRho(), delta);
         assertEquals(0.1666f, queue.calculateLq(), delta);
         assertEquals(0.5f, queue.calculateL(), delta);
-        assertEquals(0.0016f, queue.calculateWq(), delta);
+        assertEquals(0.0017f, queue.calculateWq(), delta);
         assertEquals(0.005f, queue.calculateW(), delta);
-        assertEquals(121.0f, queue.calculateCT(), delta);
+        assertEquals(121, queue.calculateCT(), delta);
     }
 
     @Test
@@ -96,7 +95,7 @@ class QueuesTests {
         cs = 50;
         cw = 1;
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
-        assertEquals(0.0089f, queue.calculateRho(), delta);
+        assertEquals(0.009f, queue.calculateRho(), delta);
         assertEquals(0, queue.calculateLq(), delta);
         assertEquals(0.9938f, queue.calculateL(), delta);
         assertEquals(0, queue.calculateWq(), delta);
@@ -117,9 +116,9 @@ class QueuesTests {
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
         assertEquals(0.3333f, queue.calculateRho(), delta);
         assertEquals(0.0833f, queue.calculateLq(), delta);
-        assertEquals(0.7500f, queue.calculateL(), delta);
-        assertEquals(0.0416f, queue.calculateWq(), delta);
-        assertEquals(0.3750f, queue.calculateW(), delta);
+        assertEquals(0.75f, queue.calculateL(), delta);
+        assertEquals(0.0417f, queue.calculateWq(), delta);
+        assertEquals(0.375f, queue.calculateW(), delta);
         assertEquals(208.4167f, queue.calculateCT(), delta);
     }
 
@@ -135,8 +134,8 @@ class QueuesTests {
         cw = 100;
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
         assertEquals(0.6666f, queue.calculateRho(), delta);
-        assertEquals(0.4307f, queue.calculateLq(), delta);
-        assertEquals(1.0153f, queue.calculateL(), delta);
+        assertEquals(0.4308f, queue.calculateLq(), delta);
+        assertEquals(1.0154f, queue.calculateL(), delta);
         assertEquals(0.2456f, queue.calculateWq(), delta);
         assertEquals(0.5789f, queue.calculateW(), delta);
         assertEquals(143.0769f, queue.calculateCT(), delta);
