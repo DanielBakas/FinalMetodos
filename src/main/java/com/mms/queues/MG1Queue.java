@@ -16,12 +16,12 @@ package com.mms.queues;
  */
 
 import com.mms.util.Util;
+import com.mms.util.Util.Distribution;
 
 public class MG1Queue extends MGsKQueue {
     //* Constructor
-    public MG1Queue(Util.Distribution B, long lambda, long mu, double cs,
-                    double cw) {
-        super(B, 1, Util.infinity.longValue(), lambda, mu, cs, cw);
+    public MG1Queue(Distribution B, int lambda, int mu, float cs, float cw) {
+        super(B, 1, Util.infinity, lambda, mu, cs, cw);
         // Main Attributes
         this.name = "M/G/1/∞/∞/FIFO";
     }

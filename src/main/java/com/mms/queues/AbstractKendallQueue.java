@@ -15,36 +15,34 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
 import com.mms.util.Util.Discipline;
-
-import java.math.BigDecimal;
+import com.mms.util.Util.Distribution;
 
 public abstract class AbstractKendallQueue {
     protected String name;
-    protected Util.Distribution A;
-    protected Util.Distribution B;
-    protected BigDecimal s;
-    protected BigDecimal N;
-    protected BigDecimal K;
+    protected Distribution A;
+    protected Distribution B;
+    protected int s;
+    protected int N;
+    protected int K;
     protected Discipline d;
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
-    public Util.Distribution getA() { return this.A; }
-    public void setA(Util.Distribution A) { this.A = A; }
+    public Distribution getA() { return this.A; }
+    public void setA(Distribution A) { this.A = A; }
 
-    public Util.Distribution getB() { return this.B; }
-    public void setB(Util.Distribution B) { this.B = B; }
+    public Distribution getB() { return this.B; }
+    public void setB(Distribution B) { this.B = B; }
 
-    public BigDecimal getS() { return this.s; }
-    public void setS(BigDecimal s) { this.s = s; }
+    public int getS() { return this.s; }
+    public void setS(int s) { this.s = s; }
 
-    public BigDecimal getN() { return this.N; }
-    public void setN(BigDecimal N) { this.N = N; }
+    public int getN() { return this.N; }
+    public void setN(int N) { this.N = N; }
 
-    public BigDecimal getK() { return this.K; }
-    public void setK(BigDecimal K) { this.K = K; }
+    public int getK() { return this.K; }
+    public void setK(int K) { this.K = K; }
 
     public Discipline getD() { return this.d; }
     public void setD(Discipline D) { this.d = D; }

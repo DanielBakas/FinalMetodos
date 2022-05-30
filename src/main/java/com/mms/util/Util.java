@@ -15,20 +15,18 @@ package com.mms.util;
  * =============================================================================
  */
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public final class Util {
     public final static int scale = 4;
-    public final static BigDecimal infinity = new BigDecimal("5").pow(
-            Util.scale);
-    public final static BigDecimal decimalLimit = BigDecimal.ONE.divide(
-            new BigDecimal("10").pow(Util.scale));
+    public final static int infinity = (int) Math.pow(5, Util.scale);
+    public final static float decimalLimit = (float) Math.pow(10, -Util.scale);
     public final static RoundingMode roundingMode = RoundingMode.HALF_UP;
 
-    public static BigDecimal factorial(BigDecimal n) {
-        if (n.compareTo(BigDecimal.ONE) <= 0) return BigDecimal.ONE;
-        else return n.multiply(factorial(n.subtract(BigDecimal.ONE)));
+    public static int factorial(int n) {
+        if (n > 30) return Util.infinity;
+        if (n <= 1) return 1;
+        else return n * factorial(n - 1);
     }
 
     public enum Discipline {

@@ -16,10 +16,11 @@ package com.mms.queues;
  */
 
 import com.mms.util.Util;
+import com.mms.util.Util.Distribution;
 
 public class QueueFactory {
-    public static Queue create(Util.Distribution B, long s, long K, long lambda,
-                               long mu, double cs, double cw) {
+    public static Queue create(Distribution B, int s, int K, int lambda, int mu,
+                               float cs, float cw) {
         // TODO: Implement Validation
         // - n cannot be lower than 0.
         // - n cannot be greater than K.
@@ -33,7 +34,7 @@ public class QueueFactory {
             case GENERAL:
                 return new MG1Queue(B, lambda, mu, cs, cw);
             case EXPONENTIAL:
-                if (K < Util.infinity.longValue())
+                if (K < Util.infinity)
                     return new MMsKQueue(s, K, lambda, mu, cs, cw);
                 else if (s > 1) return new MMsQueue(s, lambda, mu, cs, cw);
                 else return new MM1Queue(lambda, mu, cs, cw);

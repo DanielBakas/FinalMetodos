@@ -1,6 +1,5 @@
 package com.mms.queues;
 
-import com.mms.util.Util;
 /**
  * =============================================================================
  * # Final Project
@@ -16,11 +15,12 @@ import com.mms.util.Util;
  * =============================================================================
  */
 
+import com.mms.util.Util.Distribution;
+
 public class MMsKQueue extends MGsKQueue {
     //* Constructor
-    public MMsKQueue(long s, long K, long lambda, long mu, double cs,
-                     double cw) {
-        super(Util.Distribution.EXPONENTIAL, s, K, lambda, mu, cs, cw);
+    public MMsKQueue(int s, int K, int lambda, int mu, float cs, float cw) {
+        super(Distribution.EXPONENTIAL, s, K, lambda, mu, cs, cw);
         // Main Attributes
         this.name = "M/M/s/K/∞/FIFO";
     }

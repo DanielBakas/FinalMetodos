@@ -17,13 +17,14 @@ package com.mms.queues;
 
 import com.mms.util.Util;
 import com.mms.util.Util.Discipline;
+import com.mms.util.Util.Distribution;
 
 public class MGsKQueue extends Queue {
     //* Constructor
-    public MGsKQueue(Util.Distribution B, long s, long K, long lambda, long mu,
-                     double cs, double cw) {
-        super(Util.Distribution.POISSON, B, s, K, Util.infinity.longValue(),
-                Discipline.FIFO, lambda, mu, cs, cw);
+    public MGsKQueue(Distribution B, int s, int K, int lambda, int mu, float cs,
+                     float cw) {
+        super(Distribution.POISSON, B, s, K, Util.infinity, Discipline.FIFO,
+                lambda, mu, cs, cw);
         // Main Attributes
         this.name = "M/G/s/K/∞/FIFO";
     }

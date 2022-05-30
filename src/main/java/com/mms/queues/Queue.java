@@ -15,30 +15,27 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
 import com.mms.util.Util.Discipline;
-
-import java.math.BigDecimal;
+import com.mms.util.Util.Distribution;
 
 public class Queue extends AbstractQueue {
     //* Constructor
-    public Queue(Util.Distribution A, Util.Distribution B, long s, long K,
-                 long N, Discipline d, long lambda, long mu, double cs,
-                 double cw) {
+    public Queue(Distribution A, Distribution B, int s, int K, int N,
+                 Discipline d, int lambda, int mu, float cs, float cw) {
         // Main Attributes
         this.name = "A/B/s/K/N/d";
         // Kendall Attributes
         this.A = A;
         this.B = B;
-        this.s = new BigDecimal(s);
-        this.N = new BigDecimal(N);
-        this.K = new BigDecimal(K);
+        this.s = s;
+        this.N = N;
+        this.K = K;
         this.d = d;
         // Queue Attributes
-        this.lambda = new BigDecimal(lambda);
-        this.mu = new BigDecimal(mu);
+        this.lambda = lambda;
+        this.mu = mu;
         // Cost Attributes
-        this.cs = new BigDecimal(cs);
-        this.cw = new BigDecimal(cw);
+        this.cs = cs;
+        this.cw = cw;
     }
 }

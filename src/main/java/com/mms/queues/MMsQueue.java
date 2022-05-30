@@ -19,9 +19,9 @@ import com.mms.util.Util;
 
 public class MMsQueue extends MMsKQueue {
     // Constructor
-    public MMsQueue(long s, long lambda, long mu, double cs, double cw) {
+    public MMsQueue(int s, int lambda, int mu, float cs, float cw) {
         // Super Constructor
-        super(s, Util.infinity.intValue(), lambda, mu, cs, cw);
+        super(s, Util.infinity, lambda, mu, cs, cw);
         // Main Attributes
         this.name = "M/M/s/∞/∞/FIFO";
     }

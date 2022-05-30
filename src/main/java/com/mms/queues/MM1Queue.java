@@ -17,7 +17,7 @@ package com.mms.queues;
 
 public class MM1Queue extends MMsQueue {
     //* Constructor
-    public MM1Queue(long lambda, long mu, double cs, double cw) {
+    public MM1Queue(int lambda, int mu, float cs, float cw) {
         // Super Constructor
         super(1, lambda, mu, cs, cw);
         // Main Attributes

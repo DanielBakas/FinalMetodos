@@ -53,14 +53,14 @@ public class QueueController {
         }
         try {
             queueResponse = new QueueResponse();
-            queueResponse.setP0(pojo.calculateP0().doubleValue());
-            queueResponse.setPk(pojo.calculatePn(pojo.getK()).doubleValue());
-            queueResponse.setLambdaE(pojo.calculateLambdaE().doubleValue());
-            queueResponse.setWq(pojo.calculateWq().doubleValue());
-            queueResponse.setW(pojo.calculateW().doubleValue());
-            queueResponse.setLq(pojo.calculateLq().doubleValue());
-            queueResponse.setL(pojo.calculateL().doubleValue());
-            queueResponse.setCt(pojo.calculateCT().doubleValue());
+            queueResponse.setP0(pojo.calculateP0());
+            queueResponse.setPk(pojo.calculatePn(pojo.getK()));
+            queueResponse.setLambdaE(pojo.calculateLambdaE());
+            queueResponse.setWq(pojo.calculateWq());
+            queueResponse.setW(pojo.calculateW());
+            queueResponse.setLq(pojo.calculateLq());
+            queueResponse.setL(pojo.calculateL());
+            queueResponse.setCt(pojo.calculateCT());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
