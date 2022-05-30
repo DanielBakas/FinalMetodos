@@ -15,12 +15,15 @@ package com.mms.queues;
  * =============================================================================
  */
 
+import com.mms.util.Util;
+import com.mms.util.Util.Discipline;
+
 import java.math.BigDecimal;
 
 public abstract class AbstractKendallQueue {
     protected String name;
-    protected Distribution A;
-    protected Distribution B;
+    protected Util.Distribution A;
+    protected Util.Distribution B;
     protected BigDecimal s;
     protected BigDecimal N;
     protected BigDecimal K;
@@ -28,11 +31,11 @@ public abstract class AbstractKendallQueue {
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
-    public Distribution getA() { return this.A; }
-    public void setA(Distribution A) { this.A = A; }
+    public Util.Distribution getA() { return this.A; }
+    public void setA(Util.Distribution A) { this.A = A; }
 
-    public Distribution getB() { return this.B; }
-    public void setB(Distribution B) { this.B = B; }
+    public Util.Distribution getB() { return this.B; }
+    public void setB(Util.Distribution B) { this.B = B; }
 
     public BigDecimal getS() { return this.s; }
     public void setS(BigDecimal s) { this.s = s; }

@@ -1,13 +1,11 @@
 package com.mms.queues;
 
 import com.mms.util.Util;
-
-import java.math.BigDecimal;
 /**
  * =============================================================================
  * # Final Project
  *
- * Module | `MMSKQueue.java`
+ * Module | `MMsKQueue.java`
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
@@ -18,24 +16,12 @@ import java.math.BigDecimal;
  * =============================================================================
  */
 
-public class MMsKQueue extends AbstractQueue {
-    // Constructor
+public class MMsKQueue extends MGsKQueue {
+    //* Constructor
     public MMsKQueue(long s, long K, long lambda, long mu, double cs,
                      double cw) {
+        super(Util.Distribution.EXPONENTIAL, s, K, lambda, mu, cs, cw);
         // Main Attributes
-        this.name = "M/M/s/K";
-        // Kendall Attributes
-        this.A = Distribution.POISSON;
-        this.B = Distribution.EXPONENTIAL;
-        this.s = new BigDecimal(s);
-        this.N = Util.limit;
-        this.K = new BigDecimal(K);
-        this.d = Discipline.FCFS;
-        // Queue Attributes
-        this.lambda = new BigDecimal(lambda);
-        this.mu = new BigDecimal(mu);
-        // Cost Attributes
-        this.cs = new BigDecimal(cs);
-        this.cw = new BigDecimal(cw);
+        this.name = "M/M/s/K/∞/FIFO";
     }
 }

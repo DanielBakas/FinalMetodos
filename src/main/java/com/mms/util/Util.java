@@ -20,12 +20,29 @@ import java.math.RoundingMode;
 
 public final class Util {
     public final static int scale = 4;
-    public final static BigDecimal limit = new BigDecimal("5").pow(Util.scale);
-    public final static BigDecimal factorialLimit = BigDecimal.ONE.divide(
+    public final static BigDecimal infinity = new BigDecimal("5").pow(
+            Util.scale);
+    public final static BigDecimal decimalLimit = BigDecimal.ONE.divide(
             new BigDecimal("10").pow(Util.scale));
     public final static RoundingMode roundingMode = RoundingMode.HALF_UP;
+
     public static BigDecimal factorial(BigDecimal n) {
         if (n.compareTo(BigDecimal.ONE) <= 0) return BigDecimal.ONE;
         else return n.multiply(factorial(n.subtract(BigDecimal.ONE)));
+    }
+
+    public enum Discipline {
+        FIFO,
+        LCFS,
+        SIRO,
+        GD
+    }
+
+    public enum Distribution {
+        DEGENERATE,
+        ERLANG,
+        EXPONENTIAL,
+        GENERAL,
+        POISSON
     }
 }

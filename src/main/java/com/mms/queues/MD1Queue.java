@@ -15,12 +15,18 @@ package com.mms.queues;
  * =============================================================================
  */
 
-/*
+import com.mms.util.Util;
 
-public class MD1Queue extends AbstractQueue {
+import java.math.BigDecimal;
 
-    public MD1Queue(float lambda, float mu, float cs, float cw) {
+public class MD1Queue extends MG1Queue {
+    //* Constructor
+    public MD1Queue(long lambda, long mu, double cs, double cw) {
+        // Super Constructor
+        super(Util.Distribution.DEGENERATE, lambda, mu, cs, cw);
+        // Main Attributes
+        this.name = "M/D/1/∞/∞/FIFO";
+        // Queue Attributes
+        this.std = BigDecimal.ZERO;
     }
 }
-
- */
