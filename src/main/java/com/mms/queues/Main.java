@@ -15,6 +15,7 @@ package com.mms.queues;
  * =============================================================================
  */
 
+import com.mms.util.Util;
 import com.mms.util.Util.Distribution;
 
 public class Main {
@@ -23,12 +24,12 @@ public class Main {
         int s, K, lambda, mu;
         float cs, cw;
         B = Distribution.EXPONENTIAL;
-        s = 1;
-        K = 3;
-        lambda = 2;
-        mu = 3;
-        cs = 100;
-        cw = 100;
+        s = 3;
+        K = Util.infinity;
+        lambda = 60;
+        mu = 24;
+        cs = 20;
+        cw = 48;
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
         System.out.println(queue);
     }

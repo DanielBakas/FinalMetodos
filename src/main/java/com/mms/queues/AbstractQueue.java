@@ -176,7 +176,6 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
             if (temp3 < Util.decimalLimit) break;
             sum2 += temp3;
         }
-        //* SO FAR SO GOOD
         // <- Section
         float temp10, sum3, result;
         temp10 = temp7 * sum2;
@@ -191,6 +190,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         float temp1, result;
         temp1 = this.getS() * this.getMu();
         result = this.getLambda() / temp1;
+        //* Result
         return result;
     }
 

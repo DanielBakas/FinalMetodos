@@ -15,13 +15,10 @@ package com.mms.util;
  * =============================================================================
  */
 
-import java.math.RoundingMode;
-
 public final class Util {
     public final static int scale = 4;
     public final static int infinity = (int) Math.pow(5, Util.scale);
     public final static float decimalLimit = (float) Math.pow(10, -Util.scale);
-    public final static RoundingMode roundingMode = RoundingMode.HALF_UP;
 
     public static int factorial(int n) {
         if (n > 30) return Util.infinity;
