@@ -15,7 +15,7 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
+import com.mms.util.MathUtils;
 import com.mms.util.Util.Distribution;
 
 public class Main {
@@ -25,7 +25,7 @@ public class Main {
         float cs, cw;
         B = Distribution.EXPONENTIAL;
         s = 3;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 60;
         mu = 24;
         cs = 20;

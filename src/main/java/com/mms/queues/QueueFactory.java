@@ -15,7 +15,7 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
+import com.mms.util.MathUtils;
 import com.mms.util.Util.Distribution;
 
 public class QueueFactory {
@@ -34,7 +34,7 @@ public class QueueFactory {
             case GENERAL:
                 return new MG1Queue(B, lambda, mu, cs, cw);
             case EXPONENTIAL:
-                if (K < Util.infinity)
+                if (K < MathUtils.infinity)
                     return new MMsKQueue(s, K, lambda, mu, cs, cw);
                 else if (s > 1) return new MMsQueue(s, lambda, mu, cs, cw);
                 else return new MM1Queue(lambda, mu, cs, cw);

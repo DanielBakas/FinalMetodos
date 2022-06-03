@@ -15,7 +15,7 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
+import com.mms.util.MathUtils;
 import com.mms.util.Util.Distribution;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QueuesTests {
-    private final float delta = Util.decimalLimit;
+    private final float delta = MathUtils.decimalLimit;
     private Distribution B;
     private int s, K, lambda, mu, cs, cw;
 
@@ -32,7 +32,7 @@ class QueuesTests {
     void mm1_1() {
         B = Distribution.EXPONENTIAL;
         s = 1;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 2;
         mu = 3;
         cs = 100;
@@ -51,7 +51,7 @@ class QueuesTests {
     void mm1_2() {
         B = Distribution.EXPONENTIAL;
         s = 1;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 161;
         mu = 162;
         cs = 101;
@@ -70,7 +70,7 @@ class QueuesTests {
     void mm1_3() {
         B = Distribution.EXPONENTIAL;
         s = 1;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 100;
         mu = 300;
         cs = 101;
@@ -89,7 +89,7 @@ class QueuesTests {
     void mms_1() {
         B = Distribution.EXPONENTIAL;
         s = 111;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 161;
         mu = 162;
         cs = 50;
@@ -108,7 +108,7 @@ class QueuesTests {
     void mms_2() {
         B = Distribution.EXPONENTIAL;
         s = 2;
-        K = Util.infinity;
+        K = MathUtils.infinity;
         lambda = 2;
         mu = 3;
         cs = 100;

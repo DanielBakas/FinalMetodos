@@ -15,7 +15,7 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
+import com.mms.util.MathUtils;
 
 public abstract class AbstractQueue extends AbstractKendallQueue {
     //* Attributes
@@ -53,11 +53,11 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         // - when n has a value between 1 and s.
         if (n >= 1 && n < this.getS())
             //* Result
-            return result / Util.factorial(n);
+            return result / MathUtils.factorial(n);
         // - when n has a value between s and K.
         int temp3 = n - this.getS();
         float temp4, temp5, temp6;
-        temp4 = Util.factorial(this.getS());
+        temp4 = MathUtils.factorial(this.getS());
         temp5 = (float) Math.pow(this.getS(), temp3);
         temp6 = temp4 * temp5;
         //* Result
@@ -68,7 +68,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         float result;
         //* Calculations for L...
         // - when s is equal to 1 and K tends to infinity.
-        if (this.getS() == 1 && this.getK() == Util.infinity) {
+        if (this.getS() == 1 && this.getK() == MathUtils.infinity) {
             float temp;
             temp = this.getMu() - this.getLambda();
             result = this.getLambda() / temp;
@@ -76,7 +76,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
             return result;
         }
         // - when s greater or equal to 1 and K is lower than infinity.
-        if (this.getS() >= 1 && this.getK() < Util.infinity) {
+        if (this.getS() >= 1 && this.getK() < MathUtils.infinity) {
             result = this.calculateLambdaE() * this.calculateW();
             //* Result
             return result;
@@ -102,7 +102,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         float result;
         //* Calculations for Lq...
         // - when s is equal to 1 and K tends to infinity.
-        if (this.getS() == 1 && this.getK() == Util.infinity) {
+        if (this.getS() == 1 && this.getK() == MathUtils.infinity) {
             float temp1, temp2, temp3;
             temp1 = (float) Math.pow(this.getLambda(), 2);
             temp2 = this.getMu() - this.getLambda();
@@ -120,7 +120,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         temp4 = temp3 * this.calculateRho();
         // <- Section
         // Section ->
-        temp5 = Util.factorial(this.getS());
+        temp5 = MathUtils.factorial(this.getS());
         temp6 = 1 - this.calculateRho();
         temp7 = (float) Math.pow(temp6, 2);
         temp8 = temp5 * temp7;
@@ -128,7 +128,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         // Section ->
         temp9 = temp4 / temp8;
         // <- Section
-        if (this.getK() == Util.infinity) return temp9;
+        if (this.getK() == MathUtils.infinity) return temp9;
         // Section ->
         float temp10, temp11, temp12, temp13, temp14;
         temp10 = this.getK() - this.getS();
@@ -155,17 +155,17 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         sum1 = 0;
         for (int n = 0; n <= this.getS(); n++) {
             temp2 = (float) Math.pow(temp1, n);
-            temp3 = Util.factorial(n);
+            temp3 = MathUtils.factorial(n);
             temp4 = temp2 / temp3;
             // Discard Non Significant Figures
-            if (temp4 < Util.decimalLimit) break;
+            if (temp4 < MathUtils.decimalLimit) break;
             sum1 = sum1 + temp4;
         }
         // <- Section
         // Section ->
         float temp5, temp6, temp7;
         temp5 = (float) Math.pow(temp1, this.getS());
-        temp6 = Util.factorial(this.getS());
+        temp6 = MathUtils.factorial(this.getS());
         temp7 = temp5 / temp6;
         // <- Section
         // Section ->
@@ -173,7 +173,7 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
         for (int n = (this.getS() + 1); n <= this.getK(); n++) {
             temp2 = n - this.getS();
             temp3 = (float) Math.pow(this.calculateRho(), temp2);
-            if (temp3 < Util.decimalLimit) break;
+            if (temp3 < MathUtils.decimalLimit) break;
             sum2 += temp3;
         }
         // <- Section
@@ -197,20 +197,20 @@ public abstract class AbstractQueue extends AbstractKendallQueue {
     public float calculateW() {
         //* Calculations for W...
         // - when s has a value of 1 and K tends to infinity.
-        if (this.getS() == 1 && this.getK() == Util.infinity)
+        if (this.getS() == 1 && this.getK() == MathUtils.infinity)
             return this.calculateL() / this.getLambda();
         // - when s is greater or equal to 1.
         if (this.getS() >= 1) {
             float temp = (float) 1 / this.getMu();
             return this.calculateWq() + temp;
         }
-        return -Util.infinity;
+        return -MathUtils.infinity;
     }
 
     public float calculateWq() {
         //* Calculations for Wq...
         float temp, result;
-        temp = (this.getK() < Util.infinity) ?
+        temp = (this.getK() < MathUtils.infinity) ?
                 // - when K is greater or equal to infinity.
                 this.calculateLambdaE() :
                 // - when K is greater or equal to infinity.

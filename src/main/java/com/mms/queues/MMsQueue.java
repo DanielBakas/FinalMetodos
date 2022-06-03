@@ -15,13 +15,13 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
+import com.mms.util.MathUtils;
 
 public class MMsQueue extends MMsKQueue {
     // Constructor
     public MMsQueue(int s, int lambda, int mu, float cs, float cw) {
         // Super Constructor
-        super(s, Util.infinity, lambda, mu, cs, cw);
+        super(s, MathUtils.infinity, lambda, mu, cs, cw);
         // Main Attributes
         this.name = "M/M/s/∞/∞/FIFO";
     }
