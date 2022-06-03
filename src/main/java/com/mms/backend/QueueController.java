@@ -14,35 +14,35 @@ public class QueueController {
         return getQueueResponse(pojo);
     }
 
-    @ResponseBody
-    @PostMapping(value = "/mms", consumes = {"*/*"})
-    public QueueResponse mms(@RequestBody MMsQueue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/mm1", consumes = {"*/*"})
-    public QueueResponse mm1(@RequestBody MM1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/mg1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MG1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/me1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MEk1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/md1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MD1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
+//    @ResponseBody
+//    @PostMapping(value = "/mms", consumes = {"*/*"})
+//    public QueueResponse mms(@RequestBody MMsQueue pojo) {
+//        return getQueueResponse(pojo);
+//    }
+//
+//    @ResponseBody
+//    @PostMapping(value = "/mm1", consumes = {"*/*"})
+//    public QueueResponse mm1(@RequestBody MM1Queue pojo) {
+//        return getQueueResponse(pojo);
+//    }
+//
+//    @ResponseBody
+//    @PostMapping(value = "/mg1", consumes = {"*/*"})
+//    public QueueResponse mg1(@RequestBody MG1Queue pojo) {
+//        return getQueueResponse(pojo);
+//    }
+//
+//    @ResponseBody
+//    @PostMapping(value = "/me1", consumes = {"*/*"})
+//    public QueueResponse mg1(@RequestBody MEk1Queue pojo) {
+//        return getQueueResponse(pojo);
+//    }
+//
+//    @ResponseBody
+//    @PostMapping(value = "/md1", consumes = {"*/*"})
+//    public QueueResponse mg1(@RequestBody MD1Queue pojo) {
+//        return getQueueResponse(pojo);
+//    }
 
     private QueueResponse getQueueResponse(AbstractQueue pojo) {
         QueueResponse queueResponse;
