@@ -26,10 +26,10 @@ public class Main {
         B = Distribution.EXPONENTIAL;
         s = 3;
         K = Util.infinity;
-        lambda = 60;
-        mu = 24;
-        cs = 20;
-        cw = 48;
+        lambda = 40;
+        mu = 20;
+        cs = s * 6;
+        cw = 18;
         Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
         System.out.println(queue);
     }
