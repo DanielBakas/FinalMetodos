@@ -1,10 +1,10 @@
-package com.mms.queues;
+package com.mms.backend;
 
 /**
  * =============================================================================
  * # Final Project
  *
- * Module | `MG1Queue.java`
+ * Module | `Main.java`
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
@@ -18,11 +18,19 @@ package com.mms.queues;
 import com.mms.util.Util;
 import com.mms.util.Util.Distribution;
 
-public class MG1Queue extends MGsKQueue {
-    //* Constructor
-    public MG1Queue(Distribution B, int lambda, int mu, float cs, float cw) {
-        super(B, 1, Util.infinity, lambda, mu, cs, cw);
-        // Main Attributes
-        this.name = "M/G/1/∞/∞/FIFO";
+public class Main {
+    public static void main(String[] args) {
+        Distribution B;
+        int s, K, lambda, mu;
+        float cs, cw;
+        B = Distribution.EXPONENTIAL;
+        s = 3;
+        K = Util.infinity;
+        lambda = 40;
+        mu = 20;
+        cs = s * 6;
+        cw = 18;
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
+        System.out.println(queue);
     }
 }

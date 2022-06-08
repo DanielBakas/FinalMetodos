@@ -1,6 +1,9 @@
-package com.mms.backend;
+package com.mms.api;
 
-import com.mms.queues.*;
+import com.mms.backend.MM1Queue;
+import com.mms.backend.MMsKQueue;
+import com.mms.backend.MMsQueue;
+import com.mms.backend.Queue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,25 +29,7 @@ public class QueueController {
         return getQueueResponse(pojo);
     }
 
-    @ResponseBody
-    @PostMapping(value = "/mg1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MG1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/me1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MEk1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    @ResponseBody
-    @PostMapping(value = "/md1", consumes = {"*/*"})
-    public QueueResponse mg1(@RequestBody MD1Queue pojo) {
-        return getQueueResponse(pojo);
-    }
-
-    private QueueResponse getQueueResponse(AbstractQueue pojo) {
+    private QueueResponse getQueueResponse(Queue pojo) {
         QueueResponse queueResponse;
         try {
             System.out.println(pojo.toString());

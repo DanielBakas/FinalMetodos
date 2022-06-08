@@ -1,4 +1,4 @@
-package com.mms.backend;
+package com.mms.api;
 
 public class QueueResponse {
     private double P0;

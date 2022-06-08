@@ -1,4 +1,4 @@
-package com.mms.backend;
+package com.mms.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

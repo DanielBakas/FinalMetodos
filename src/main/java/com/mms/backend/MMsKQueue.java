@@ -1,10 +1,10 @@
-package com.mms.queues;
+package com.mms.backend;
 
 /**
  * =============================================================================
  * # Final Project
  *
- * Module | `MMsQueue.java`
+ * Module | `MMsKQueue.java`
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
@@ -15,14 +15,11 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util;
-
-public class MMsQueue extends MMsKQueue {
-    // Constructor
-    public MMsQueue(int s, int lambda, int mu, float cs, float cw) {
-        // Super Constructor
-        super(s, Util.infinity, lambda, mu, cs, cw);
+public class MMsKQueue extends MMQueue {
+    //* Constructor
+    public MMsKQueue(int s, int K, int lambda, int mu, float cs, float cw) {
+        super(s, K, lambda, mu, cs, cw);
         // Main Attributes
-        this.name = "M/M/s/∞/∞/FIFO";
+        this.name = "M/M/s/K/∞/FIFO";
     }
 }

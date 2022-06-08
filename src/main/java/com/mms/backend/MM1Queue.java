@@ -1,10 +1,10 @@
-package com.mms.queues;
+package com.mms.backend;
 
 /**
  * =============================================================================
  * # Final Project
  *
- * Module | `MD1Queue.java`
+ * Module | `MM1Queue.java`
  *
  * Daniel Bakas Amuchástegui          A01657103
  * Santiago Hernández Guerrero        A01027543
@@ -15,16 +15,12 @@ package com.mms.queues;
  * =============================================================================
  */
 
-import com.mms.util.Util.Distribution;
-
-public class MD1Queue extends MG1Queue {
+public class MM1Queue extends MMsQueue {
     //* Constructor
-    public MD1Queue(int lambda, int mu, float cs, float cw) {
+    public MM1Queue(int lambda, int mu, float cs, float cw) {
         // Super Constructor
-        super(Distribution.DEGENERATE, lambda, mu, cs, cw);
+        super(1, lambda, mu, cs, cw);
         // Main Attributes
-        this.name = "M/D/1/∞/∞/FIFO";
-        // Queue Attributes
-        this.std = 0;
+        this.name = "M/M/1/∞/∞/FIFO";
     }
 }

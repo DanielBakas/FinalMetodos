@@ -1,4 +1,4 @@
-package com.mms.queues;
+package com.mms.backend;
 
 /**
  * =============================================================================
@@ -37,7 +37,7 @@ class QueuesTests {
         mu = 3;
         cs = 100;
         cw = 100;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.6666f, queue.calculateRho(), delta);
         assertEquals(1.3333f, queue.calculateLq(), delta);
         assertEquals(2, queue.calculateL(), delta);
@@ -56,7 +56,7 @@ class QueuesTests {
         mu = 162;
         cs = 101;
         cw = 120;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.9938f, queue.calculateRho(), delta);
         assertEquals(160.0062f, queue.calculateLq(), delta);
         assertEquals(161, queue.calculateL(), delta);
@@ -75,7 +75,7 @@ class QueuesTests {
         mu = 300;
         cs = 101;
         cw = 120;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.3333f, queue.calculateRho(), delta);
         assertEquals(0.1666f, queue.calculateLq(), delta);
         assertEquals(0.5f, queue.calculateL(), delta);
@@ -94,7 +94,7 @@ class QueuesTests {
         mu = 162;
         cs = 50;
         cw = 1;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.009f, queue.calculateRho(), delta);
         assertEquals(0, queue.calculateLq(), delta);
         assertEquals(0.9938f, queue.calculateL(), delta);
@@ -113,7 +113,7 @@ class QueuesTests {
         mu = 3;
         cs = 100;
         cw = 101;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.3333f, queue.calculateRho(), delta);
         assertEquals(0.0833f, queue.calculateLq(), delta);
         assertEquals(0.75f, queue.calculateL(), delta);
@@ -132,7 +132,7 @@ class QueuesTests {
         mu = 3;
         cs = 100;
         cw = 100;
-        Queue queue = QueueFactory.create(B, s, K, lambda, mu, cs, cw);
+        Queue queue = QueueFactory.create(s, K, lambda, mu, cs, cw);
         assertEquals(0.6666f, queue.calculateRho(), delta);
         assertEquals(0.4308f, queue.calculateLq(), delta);
         assertEquals(1.0154f, queue.calculateL(), delta);
