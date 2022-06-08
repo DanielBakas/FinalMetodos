@@ -16,7 +16,6 @@ package com.mms.backend;
  */
 
 import com.mms.util.Util;
-import com.mms.util.Util.Distribution;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,13 +23,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QueuesTests {
     private final float delta = Util.decimalLimit;
-    private Distribution B;
     private int s, K, lambda, mu, cs, cw;
 
     @Test
     @DisplayName("MM1Queue(2, 3, 100, 100)")
     void mm1_1() {
-        B = Distribution.EXPONENTIAL;
         s = 1;
         K = Util.infinity;
         lambda = 2;
@@ -49,7 +46,6 @@ class QueuesTests {
     @Test
     @DisplayName("MM1Queue(161, 162, 101, 120)")
     void mm1_2() {
-        B = Distribution.EXPONENTIAL;
         s = 1;
         K = Util.infinity;
         lambda = 161;
@@ -68,7 +64,6 @@ class QueuesTests {
     @Test
     @DisplayName("MM1Queue(100, 300, 101, 120)")
     void mm1_3() {
-        B = Distribution.EXPONENTIAL;
         s = 1;
         K = Util.infinity;
         lambda = 100;
@@ -87,7 +82,6 @@ class QueuesTests {
     @Test
     @DisplayName("MMsQueue(111, 161, 162, 50, 1)")
     void mms_1() {
-        B = Distribution.EXPONENTIAL;
         s = 111;
         K = Util.infinity;
         lambda = 161;
@@ -106,7 +100,6 @@ class QueuesTests {
     @Test
     @DisplayName("MMsQueue(2, 2, 3, 100, 101)")
     void mms_2() {
-        B = Distribution.EXPONENTIAL;
         s = 2;
         K = Util.infinity;
         lambda = 2;
@@ -125,7 +118,6 @@ class QueuesTests {
     @Test
     @DisplayName("MMsKQueue(1, 3, 2, 3, 100, 100)")
     void mmsk_1() {
-        B = Distribution.EXPONENTIAL;
         s = 1;
         K = 3;
         lambda = 2;
